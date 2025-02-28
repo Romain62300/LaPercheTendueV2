@@ -1,0 +1,330 @@
+.top-header {
+    background-color: #C62828; /* Rouge */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+}
+
+.top-header .logo img {
+    height: 80px;
+}
+
+.top-header h1 {
+    flex-grow: 1;
+    text-align: center;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.top-header .social-icons a {
+    color: #C0C0C0;
+    font-size: 1.5rem;
+    margin-left: 15px;
+    gap: 15px; /* Espacement entre les icônes */
+    padding-right: 15px; /* Ajoute un peu d'espace à droite */
+}
+
+.navbar {
+    background-color: #2C2C34 !important; /* Noir légèrement éclairci */
+    padding: 10px 0;
+    width: 100%;
+    border-radius: 0; /* Supprime toute bordure arrondie */
+    box-shadow: none;
+}
+
+
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.navbar-nav .nav-item {
+    margin: 0 15px;
+}
+
+.navbar-nav .nav-link {
+    color: white !important; 
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1rem;
+    padding: 10px 15px;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #FFD700 !important; /* Jaune */
+}
+.navbar-collapse {
+    background-color: transparent !important;
+    padding: 0;
+}
+.navbar-nav,
+.navbar-nav .nav-item,
+.navbar-nav .nav-link {
+    background-color: transparent !important;
+}
+.container {
+    max-width: 100%;
+    padding: 0;
+}
+
+
+/* ======= FOOTER ======= */
+.footer {
+    background-color: #2E4369;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 40px; /* Augmente l'espace en bas pour éviter le chevauchement */
+    position: relative;
+    z-index: 1; /* S'assure que la barre grise ne passe pas dessus */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1400px;
+    margin: auto;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+}
+
+/* Espacement entre Adresse et Horaires */
+.footer-section {
+    width: 40%;
+    padding: 10px;
+}
+
+.footer-section.adresse {
+    text-align: left;
+}
+
+.footer-section.horaires {
+    text-align: right;
+}
+
+/* ===== Barre grise collée au footer ===== */
+.footer-bottom-container {
+    background-color: #B0A9A6;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+    position: absolute; /* Attachée au footer */
+    bottom: 0;
+    left: 0;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Évite que la barre grise flotte en cas de petit contenu */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.wrapper {
+    flex: 1;
+}
+
+/* Suppression de l'icône Google Maps qui gêne */
+.footer-section a.btn-google-maps img {
+    max-width: 20px;
+    height: auto;
+}
+
+/* Liens dans la barre grise */
+.footer-bottom-container a {
+    color: white !important;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+    padding: 0 15px;
+}
+
+.footer-bottom-container a:hover {
+    color: #FFD700 !important;
+    text-decoration: underline;
+}
+
+/* ======= FORMULAIRE DE CONTACT ======= */
+.contact-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-group input,
+ .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    max-width: 100%;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.btn-submit {
+    width: 200px;
+    /*max-width: 200px;*/
+    display: block;
+    margin: 20px auto; /* Centre le bouton */
+    padding: 12px;
+    background-color: #C92B36;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+   /* transition: background 0.3s;*/
+   transition: background 0.3s ease-in-out, transform 0.1s ease-in-out;
+} 
+
+.btn-submit:hover {
+    background-color: #A2252E;
+    transform: scale(1.05); /* Effet d’agrandissement léger */
+}
+/* ✅ Bannière avec image */
+.parrainage-banner {
+    position: relative;
+    width: 100%;
+    max-height: 250px; /* Ajuste la hauteur */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 20px; /* Espace intérieur */
+}
+
+/* ✅ Image de fond bien centrée */
+.parrainage-banner {
+    background: url('../images/logo.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+/* ✅ Overlay pour améliorer la lisibilité */
+.parrainage-banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Assombrit l’image */
+}
+
+
+.parrainage-banner h2 {
+    position: relative;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.parrainage-banner p {
+    position: relative;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+/* ✅ Alignement du texte */
+.parrainage-banner h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.parrainage-banner p {
+    font-size: 16px;
+}
+
+/* ✅ Ajustement du conteneur */
+.parrainage-info {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    padding: 40px;
+    text-align: center;
+    max-width: 750px;
+    margin: 40px auto;
+}
+.parrainage-info ol {
+    text-align: left;
+    margin: 20px auto;
+    padding-left: 25px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* ✅ Bouton bien centré */
+.btn-parrain {
+    display: inline-block;
+    padding: 12px 25px;
+    margin-top: 25px;
+    background-color: #007bff;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-parrain:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
