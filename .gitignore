@@ -1,0 +1,29 @@
+# Ignorer les fichiers de logs et temporaires
+*.log
+*.tmp
+*.cache
+
+# Ignorer les fichiers système (Windows / macOS)
+.DS_Store
+Thumbs.db
+
+# Ignorer les dépendances Composer (PHP)
+vendor/
+
+# Ignorer les dépendances Node.js
+node_modules/
+
+# Ignorer les fichiers d'environnement (configurations sensibles)
+.env
+config.php
+
+# Ignorer les fichiers de bases de données locales
+database/backup.sql
+database/install.sql
+
+# Ignorer les fichiers de cache et sessions PHP
+*.session
+.vscode 
+wamp64/tmp/
+wamp64/logs/
+
