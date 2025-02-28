@@ -11,13 +11,21 @@
     $errors = [];
 
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        if (empty($_POST['nom'])) {
+        $nom = htmlspecialchars(trim($_POST['nom']));
+        $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
+        $message = htmlspecialchars(trim($_POST['message']));
+
+        if (!empty($_POST['honeypot'])) {
+            die("Spam détecté !");
+        }
+
+        if (empty($nom)) {
             $errors[] = "Le champ Nom est requis.";
         }
-        if (empty($_POST['email'])) {
-            $errors[] = "Le champ Email est requis.";
+        if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errors[] = "Veuillez entrer une adresse email valide.";
         }
-        if (empty($_POST['message'])) {
+        if (empty($message)) {
             $errors[] = "Le champ Message est requis.";
         }
     }
@@ -33,18 +41,19 @@
 
     <div class="contact-form">
         <form action="/la-perche-tendue/src/Controller/ContactController.php" method="POST">
+            <input type="text" name="honeypot" style="display:none;"> <!-- Champ anti-bot -->
 
             <div class="form-group">
                 <label for="nom">Nom :</label>
-                <input type="text" id="nom" name="nom" placeholder="Votre nom" >
+                <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
             </div>
             <div class="form-group">
                 <label for="email">Email :</label>
-                <input type="email" id="email" name="email" placeholder="Votre adresse email" >
+                <input type="email" id="email" name="email" placeholder="Votre adresse email" required>
             </div>
             <div class="form-group">
                 <label for="message">Message :</label>
-                <textarea id="message" name="message" placeholder="Votre message" ></textarea>
+                <textarea id="message" name="message" placeholder="Votre message" required></textarea>
             </div>
             <button type="submit" class="btn-submit">Envoyer</button>
         </form>
@@ -52,3 +61,4 @@
 </div>
 
 <?php include '../includes/footer.php'; ?>
+
