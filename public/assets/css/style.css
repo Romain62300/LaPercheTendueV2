@@ -1,3 +1,12 @@
+
+html {
+    font-size: 16px;
+    text-size-adjust: 100%; /* Ajustement intelligent de la taille */
+    -webkit-text-size-adjust: none; /* Optionnel : Désactive l'ajustement sur WebKit (Safari) */
+   
+}
+
+
 .top-header {
     background-color: #C62828; /* Rouge */
     display: flex;
@@ -157,13 +166,33 @@ body {
 }
 
 /* ======= FORMULAIRE DE CONTACT ======= */
-.contact-container {
+/*.contact-container {
     max-width: 600px;
     margin: 50px auto;
     padding: 30px;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}*/
+
+/*.contact-container {
+    max-width: 750px; 
+    margin: 40px auto;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+*/
+
+.contact-container, .parrainage-info {
+    max-width: 750px;
+    /*margin: 40px auto 40px; /* Ajout d’un margin-bottom */
+    margin: 40px auto 80px; /* Augmente l’espace sous le formulaire */
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .contact-container h2 {
@@ -188,7 +217,7 @@ body {
 .form-group label {
     font-weight: bold;
 }
-
+/*
 .form-group input,
  .form-group textarea {
     width: 100%;
@@ -198,17 +227,37 @@ body {
     font-size: 16px;
     max-width: 100%;
 }
+*/
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Évite les débordements */
+    max-width: 100%;
+    font-size: 16px; /* Taille fixe et uniforme */
+    line-height: 1.5; /* Améliore l’espacement du texte */
+}
+
+
+input, textarea {
+    appearance: none;
+    -webkit-appearance: none;
+    font-family: inherit;
+}
+
 
 .form-group textarea {
     min-height: 120px;
     resize: vertical;
 }
-
+/*
 .btn-submit {
     width: 200px;
-    /*max-width: 200px;*/
+
     display: block;
-    margin: 20px auto; /* Centre le bouton */
+    margin: 20px auto; 
     padding: 12px;
     background-color: #C92B36;
     color: white;
@@ -218,9 +267,45 @@ body {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-   /* transition: background 0.3s;*/
+   
    transition: background 0.3s ease-in-out, transform 0.1s ease-in-out;
-} 
+} */
+/*.btn-submit, .btn-parrain {
+    width: 100%;
+    max-width: 200px; 
+    display: block;
+    margin: 20px auto;
+    padding: 12px;
+    background-color: #C92B36;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.1s ease-in-out;
+}
+*/
+
+.btn-submit,
+ .btn-parrain {
+    width: 100%;
+    max-width: 250px; /* Légèrement plus large pour plus d'harmonie */
+    display: block;
+    margin: 20px auto; /* Centre correctement le bouton */
+    padding: 12px;
+    background-color: #C92B36;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.1s ease-in-out;
+}
+
 
 .btn-submit:hover {
     background-color: #A2252E;
@@ -291,7 +376,7 @@ body {
 }
 
 /* ✅ Ajustement du conteneur */
-.parrainage-info {
+/*.parrainage-info {
     background: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
@@ -299,7 +384,8 @@ body {
     text-align: center;
     max-width: 750px;
     margin: 40px auto;
-}
+}*/
+
 .parrainage-info ol {
     text-align: left;
     margin: 20px auto;
@@ -309,6 +395,7 @@ body {
 }
 
 /* ✅ Bouton bien centré */
+/*
 .btn-parrain {
     display: inline-block;
     padding: 12px 25px;
@@ -322,9 +409,178 @@ body {
     text-align: center;
     border: none;
     cursor: pointer;
-}
+}*/
 
 .btn-parrain:hover {
     background-color: #0056b3;
     transform: scale(1.05);
+}
+/* ✅ Uniformiser la largeur des formulaires */
+.form-container, 
+.contact-container {
+    max-width: 750px; /* Aligné avec .parrainage-info */
+    margin: 40px auto;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* ✅ S'assurer que les champs de formulaire ont la même largeur */
+/*.form-group input[type="text"] ,
+form-group input[type="email"]
+.form-group textarea {
+    height: 40px;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px !important ;
+    font-family: Arial, sans-serif !important; 
+    box-sizing: border-box; 
+    line-height: 1.5;
+
+}*/
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    display: block;
+    width: 100%;
+    height: 45px; /* Assure une taille identique */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px !important;
+    font-family: Arial, sans-serif !important;
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+.form-group textarea {
+    height: 120px; /* Taille adaptée pour le champ message */
+}
+
+/* ✅ Harmoniser le bouton */
+.btn-submit, .btn-parrain {
+    width: 100%;
+    max-width: 200px; /* Pour ne pas être trop large */
+    display: block;
+    margin: 20px auto; /* Centré */
+    padding: 12px;
+    background-color: #C92B36;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.btn-submit:hover, .btn-parrain:hover {
+    background-color: #A2252E;
+    transform: scale(1.05);
+}
+
+/* ✅ Correction du footer pour éviter le chevauchement */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.wrapper {
+    flex: 1;
+}
+
+/* ✅ Éviter le chevauchement du footer */
+.footer {
+    padding-bottom: 50px;
+    position: relative;
+    z-index: 1;
+}
+/*@media screen and (max-width: 768px) {
+    .navbar-collapse {
+        background-color: #2C2C34; 
+        padding: 10px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        max-height: 90vh; 
+        overflow-y: auto; 
+        transition: all 0.3s ease-in-out;
+    }
+
+
+    .navbar-nav {
+        text-align: center;
+    }
+*/
+@media screen and (max-width: 768px) {
+    .navbar-collapse {
+        background-color: #2C2C34; /* Couleur de fond pour bien voir le menu */
+        padding: 10px;
+        position: fixed; /* Le menu reste bien positionné */
+        top: 80px; /* Ajuste selon la hauteur du header */
+        left: 0;
+        width: 100%;
+        height: 100vh; /* Prend toute la hauteur de l'écran */
+        z-index: 1000;
+        overflow-y: auto; /* Permet le défilement si le menu est grand */
+        transition: all 0.3s ease-in-out;
+        .form-group input,
+        .form-group textarea {
+            font-size: 16px;
+        }
+    }
+
+    .navbar-nav {
+        text-align: center;
+        display: flex;
+        flex-direction: column; /* Met les liens en colonne */
+        gap: 10px;
+    }
+
+    .navbar-toggler {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        z-index: 1100; /* Toujours visible */
+    }
+}
+
+
+    .navbar-nav .nav-item {
+        margin: 5px 0; /* Espacement entre les liens */
+    }
+
+    @media screen and (max-width: 500px) {
+        .parrainage-banner h2 {
+            font-size: 1.4rem;
+            padding: 10px;
+            line-height: 1.4;
+        }
+    
+        .parrainage-banner p {
+            font-size: 1rem;
+            padding: 8px;
+            line-height: 1.3;
+        }
+    }
+    
+
+@media screen and (max-width: 400px) {
+    .parrainage-banner h2 {
+        font-size: 1.2rem;
+    }
+    .parrainage-banner p {
+        font-size: 0.9rem;
+    }
+}
+/* Correction pour Safari */
+th {
+    text-align: -webkit-match-parent; /* Pour Chrome et Edge */
+   text-align: inherit;
 }

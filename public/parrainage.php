@@ -1,6 +1,6 @@
 <?php include '../includes/header.php'; ?>
 
-<link rel="stylesheet" href="assets/css/parrainage.css">
+<!--<link rel="stylesheet" href="assets/css/parrainage.css">-->
 
 <div class="parrainage-container">
     <div class="parrainage-banner">

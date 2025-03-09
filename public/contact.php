@@ -39,9 +39,9 @@
     }
     ?>
 
-    <div class="contact-form">
+   <!-- <div class="contact-form">
         <form action="/la-perche-tendue/src/Controller/ContactController.php" method="POST">
-            <input type="text" name="honeypot" style="display:none;"> <!-- Champ anti-bot -->
+            <input type="text" name="honeypot" style="display:none;"> 
 
             <div class="form-group">
                 <label for="nom">Nom :</label>
@@ -59,6 +59,46 @@
         </form>
     </div>
 </div>
+<div class="contact-form">
+    <form action="/la-perche-tendue/src/Controller/ContactController.php" method="POST">
+        <input type="text" name="honeypot" style="display:none;"> <!-- Champ anti-bot -->
 
+      <!--  <div class="form-group">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom" title="Entrez votre nom" aria-label="Nom" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" placeholder="Votre adresse email" title="Entrez votre adresse email" aria-label="Email" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" placeholder="Votre message" title="Tapez votre message ici" aria-label="Message" required></textarea>
+        </div>
+        <button type="submit" class="btn-submit" title="Envoyer votre message">Envoyer</button>
+    </form>
+</div>
+
+-->
+
+<div class="contact-form">
+    <form action="/la-perche-tendue/src/Controller/ContactController.php" method="POST">
+        <input type="text" name="honeypot" style="display:none;" aria-hidden="true" title="Champ anti-spam caché"
+        tabindex="-1"> <!-- Champ anti-bot -->
+
+        <div class="form-group">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom" title="Entrez votre nom" aria-label="Nom" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" placeholder="Votre adresse email" title="Entrez votre adresse email" aria-label="Email" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" placeholder="Votre message" title="Tapez votre message ici" aria-label="Message" required></textarea>
+        </div>
+        <button type="submit" class="btn-submit" title="Envoyer votre message" aria-label="Envoyer le message">Envoyer</button>
+    </form>
+</div>
 <?php include '../includes/footer.php'; ?>
-

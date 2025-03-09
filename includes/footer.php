@@ -21,12 +21,37 @@
         </div>
 
         <div class="footer-bottom-container">
-            <p>Copyright 2025 Ville de Lens | 
-            <!--    <a href="#" class="footer-link">Mentions légales</a> | 
+            <p>Copyright 2025 Ville de Lens |
+                <!--    <a href="#" class="footer-link">Mentions légales</a> | 
                 <a href="#" class="footer-link">Gestion des cookies</a>-->
-                <a href="/la-perche-tendue/public/mentions-legales.php" class="footer-link">Mentions légales</a> | 
-<a href="#" id="gestionCookies" class="footer-link">Gestion des cookies</a>
-<script src="/la-perche-tendue/public/assets/js/cookies.js"></script>
+                <a href="/la-perche-tendue/public/mentions-legales.php" class="footer-link">Mentions légales</a> |
+                <a href="#" id="gestionCookies" class="footer-link">Gestion des cookies</a>
+                <!--<script src="/la-perche-tendue/public/assets/js/menu.js"></script>
+<script src="/la-perche-tendue/public/assets/js/cookies.js"></script>-->
+                <!-- Scripts JavaScript -->
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+                <script src="/la-perche-tendue/public/assets/js/cookies.js"></script>
+                <script src="/la-perche-tendue/public/assets/js/menu.js"></script>
+
+                <!-- Empêche le menu burger de se fermer immédiatement -->
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        let navbarToggler = document.querySelector(".navbar-toggler");
+                        let navbarMenu = document.querySelector("#navbarNav");
+
+                        if (navbarToggler && navbarMenu) {
+                            navbarToggler.addEventListener("click", function() {
+                                if (!navbarMenu.classList.contains("show")) {
+                                    navbarMenu.classList.add("show");
+                                } else {
+                                    navbarMenu.classList.remove("show");
+                                }
+                            });
+                        }
+                    });
+                </script>
+
+
             </p>
         </div>
     </div>
