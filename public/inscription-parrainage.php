@@ -1,54 +1,30 @@
 <?php include '../includes/header.php'; ?>
+<?php require '../database/database.php'; ?>
 
-<div class="container">
-    <h2>Inscription au Parrainage</h2>
+<div class="container mt-5">
+    <h2 class="text-center">Inscription au Parrainage</h2>
+    <p class="text-center">Devenez parrain et soutenez une personne en difficulté.</p>
 
-    <?php if (isset($_GET['success'])): ?>
-        <p style="color: green; text-align: center;">Votre demande a bien été envoyée !</p>
-    <?php endif; ?>
+    <form action="/la-perche-tendue/src/Controller/ParrainageController.php" method="POST">
+        <input type="text" name="honeypot" style="display:none;" aria-hidden="true" title="Champ anti-spam caché" tabindex="-1"> <!-- Champ anti-bot -->
 
-    <?php
-    $errors = [];
+        <div class="form-group">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" class="form-control" placeholder="Votre nom" required>
+        </div>
 
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        if (empty($_POST['nom'])) {
-            $errors[] = "Le champ Nom est requis.";
-        }
-        if (empty($_POST['email'])) {
-            $errors[] = "Le champ Email est requis.";
-        }
-        if (empty($_POST['message'])) {
-            $errors[] = "Le champ Message est requis.";
-        }
-    }
+        <div class="form-group mt-3">
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="Votre adresse email" required>
+        </div>
 
-    if (!empty($errors)) {
-        echo "<div style='color: red; text-align: center;'>";
-        foreach ($errors as $error) {
-            echo "<p>$error</p>";
-        }
-        echo "</div>";
-    }
-    ?>
+        <div class="form-group mt-3">
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" class="form-control" placeholder="Votre message (optionnel)"></textarea>
+        </div>
 
-    <div class="contact-form">
-        <form action="/la-perche-tendue/src/Controller/ParrainageController.php" method="POST">
-
-            <div class="form-group">
-                <label for="nom">Nom :</label>
-                <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email :</label>
-                <input type="email" id="email" name="email" placeholder="Votre adresse email" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Pourquoi souhaitez-vous parrainer ?</label>
-                <textarea id="message" name="message" placeholder="Expliquez votre motivation" required></textarea>
-            </div>
-            <button type="submit" class="btn-submit">S'inscrire</button>
-        </form>
-    </div>
+        <button type="submit" class="btn btn-primary mt-3">S'inscrire comme parrain</button>
+    </form>
 </div>
 
 <?php include '../includes/footer.php'; ?>
