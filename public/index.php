@@ -22,7 +22,7 @@
         foreach ($actualites as $article) {
           setlocale(LC_TIME, "fr_FR.UTF-8"); // Définir la localisation en français
 echo "<li class='list-group-item'>
-        <a href='actualites.php?id={$article['id']}'>{$article['titre']}</a> - " 
+        <a href='actualites.php?id={$article['id']}'>{$article['titre']}</a> - " .
         (new DateTime($article['date_publication']))->format('d F Y').
 
      "</li>";
