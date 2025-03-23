@@ -584,3 +584,210 @@ th {
     text-align: -webkit-match-parent; /* Pour Chrome et Edge */
    text-align: inherit;
 }
+/* === TITRES PRINCIPAUX === */
+h2.text-center {
+    text-align: center;
+    font-size: 2rem;
+    color: #2E4369;
+    margin: 40px 0 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+*/
+/* === SOUS-TITRES (TOUTES NOS ACTUALITÉS) === */
+h3.text-center {
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: #2E3A4F; /* fond bleu foncé cohérent */
+    color: white;
+    padding: 10px 0;
+    margin: 60px auto 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    max-width: 800px;
+    border-radius: 4px;
+}
+
+/* === ESPACEMENT GÉNÉRAL DES SECTIONS === */
+section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    margin-bottom: 60px;
+}
+
+/* === BLOC SERVICES EN 1 CLIC === */
+.services-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    text-align: center;
+    align-items: stretch;
+}
+
+.services-grid .service {
+    width: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.services-grid .service:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.services-grid .service img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+
+.services-grid .service p {
+    font-size: 0.95rem;
+    color: #1B2A61;
+    font-weight: bold;
+    margin-top: 5px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.services-grid .service a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* === BLOC ACTUALITÉS === */
+.actualites-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: stretch;
+    margin-bottom: 60px;
+}
+
+.actualite {
+    width: 300px;
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(201, 43, 54, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.actualite:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(201, 43, 54, 0.3);
+}
+
+.actualite img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.actualite h3 {
+    font-size: 1.1rem;
+    color: #2E4369;
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.actualite p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #333;
+    text-align: justify;
+}
+
+/* === BLOC #PERCHE TENDUE === */
+.perche-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 60px;
+    align-items: stretch;
+}
+
+.perche-item {
+    width: 280px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 6px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    padding-bottom: 10px;
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.perche-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(201, 43, 54, 0.3);
+}
+
+.perche-item img {
+    width: 100%;
+    border-radius: 6px 6px 0 0;
+}
+
+.perche-item p {
+    margin: 10px 0 5px;
+    color: #2E4369;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.perche-item a.btn {
+    text-align: center;
+    display: inline-block;
+    margin-top: 5px;
+    padding: 6px 12px;
+    background-color: #C92B36;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background 0.2s ease-in-out;
+}
+
+.perche-item a.btn:hover {
+    background-color: #A2252E;
+}
+
+/* === STYLE DU BOUTON TÉLÉCHARGER === */
+.perche-item .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 10px auto 20px;
+    padding: 10px 20px;
+    background-color: #C92B36;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: background 0.2s ease-in-out, transform 0.2s ease;
+}
+
+.perche-item .btn:hover {
+    background-color: #A2252E;
+    transform: translateY(-2px);
+}
+
+.perche-item .btn i {
+    font-size: 1rem;
+}

@@ -7,6 +7,7 @@ $nom = isset($_GET['nom']) ? htmlspecialchars($_GET['nom']) : '';
 $email = isset($_GET['email']) ? htmlspecialchars($_GET['email']) : '';
 $message = isset($_GET['message']) ? htmlspecialchars($_GET['message']) : '';
 $error = isset($_GET['error']) ? htmlspecialchars($_GET['error']) : '';
+$success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : '';
 ?>
 
 <div class="container mt-5">
@@ -15,7 +16,16 @@ $error = isset($_GET['error']) ? htmlspecialchars($_GET['error']) : '';
 
     <!-- Affichage des erreurs -->
     <?php if (!empty($error)): ?>
-        <div class="alert alert-danger"><?php echo $error; ?></div>
+        <div class="alert alert-danger">
+            <strong>Erreur :</strong> <?php echo $error; ?>
+        </div>
+    <?php endif; ?>
+
+    <!-- Affichage du message de succès -->
+    <?php if (!empty($success)): ?>
+        <div class="alert alert-success">
+            <strong>Succès :</strong> <?php echo $success; ?>
+        </div>
     <?php endif; ?>
 
     <form action="/la-perche-tendue/src/Controller/ParrainageController.php" method="POST">
@@ -23,18 +33,17 @@ $error = isset($_GET['error']) ? htmlspecialchars($_GET['error']) : '';
 
         <div class="form-group">
             <label for="nom">Nom :</label>
-            <input type="text" id="nom" name="nom" class="form-control" placeholder="Votre nom" value="<?= $nom ?>" required>
+            <input type="text" id="nom" name="nom" class="form-control" placeholder="Votre nom" value="<?= $nom ?>" required minlength="3">
         </div>
 
         <div class="form-group mt-3">
             <label for="email">Email :</label>
             <input type="email" id="email" name="email" class="form-control" placeholder="Votre adresse email" value="<?= $email ?>" required>
-
         </div>
 
         <div class="form-group mt-3">
             <label for="message">Message :</label>
-            <textarea id="message" name="message" class="form-control" placeholder="Votre message (optionnel)"><?= $message ?></textarea>
+            <textarea id="message" name="message" class="form-control" placeholder="Votre message (optionnel)" maxlength="500"><?= $message ?></textarea>
         </div>
 
         <button type="submit" class="btn btn-primary mt-3">S'inscrire comme parrain</button>
@@ -42,4 +51,3 @@ $error = isset($_GET['error']) ? htmlspecialchars($_GET['error']) : '';
 </div>
 
 <?php include '../includes/footer.php'; ?>
-

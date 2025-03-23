@@ -2,7 +2,18 @@
 require_once __DIR__ . '/../../database/database.php';
 require_once __DIR__ . '/../Model/ParrainageModel.php';
 
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+
+
+
 $parrainageModel = new ParrainageModel($pdo);
+
+// Fonction pour logger les erreurs
+function logError($message) {
+    file_put_contents(__DIR__ . "/../../logs/errors.log", "[" . date('Y-m-d H:i:s') . "] " . $message . "\n", FILE_APPEND);
+}
 
 // Vérification de l'ajout d'un parrainage
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -29,23 +40,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Vérifier la validité de l'email
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL) || !preg_match('/^[^@]+@[^@]+\.[a-zA-Z]{2,}$/', $email)) {
         header("Location: /la-perche-tendue/public/inscription-parrainage.php?error=Adresse email invalide.&nom=$nom&email=$email&message=$message");
         exit;
     }
-// Vérifier si l'email est déjà enregistré
-if ($parrainageModel->emailExists($email)) {
-    header("Location: /la-perche-tendue/public/inscription-parrainage.php?error=Cet email est déjà utilisé.&nom=$nom&email=$email&message=$message");
-    exit;
-}
+    
 
+    // Vérifier si l'email est déjà enregistré
+    if ($parrainageModel->emailExists($email)) {
+        header("Location: /la-perche-tendue/public/inscription-parrainage.php?error=Cet email est déjà utilisé.&nom=$nom&email=$email&message=$message");
+        exit;
+    }
 
+    // Vérifier la longueur du message pour éviter les abus
+    if (strlen($message) > 500) {
+        header("Location: /la-perche-tendue/public/inscription-parrainage.php?error=Le message est trop long (max 500 caractères).&nom=$nom&email=$email&message=$message");
+        exit;
+    }
 
     // Ajouter le parrainage en base de données
     if ($parrainageModel->addParrainage($nom, $email, $message)) {
         header("Location: /la-perche-tendue/public/liste-parrainages.php?success=Parrainage ajouté avec succès.");
         exit;
     } else {
+        logError("Erreur lors de l'ajout du parrainage pour l'email: " . $email);
         header("Location: /la-perche-tendue/public/inscription-parrainage.php?error=Erreur lors de l'inscription.&nom=$nom&email=$email&message=$message");
         exit;
     }
@@ -57,6 +75,7 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
     if ($parrainageModel->deleteParrainage($id)) {
         header("Location: /la-perche-tendue/public/liste-parrainages.php?success=Parrainage supprimé avec succès.");
     } else {
+        logError("Erreur lors de la suppression du parrainage ID: " . $id);
         header("Location: /la-perche-tendue/public/liste-parrainages.php?error=Erreur lors de la suppression.");
     }
     exit;
