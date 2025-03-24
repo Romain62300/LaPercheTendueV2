@@ -1,45 +1,24 @@
-<?php
-include '../includes/header.php';
-require '../database/database.php';
-?>
-
-<div class="container mt-5">
-    <h2 class="text-center">Liste des dons</h2>
-    <p class="text-center">Merci à tous nos donateurs pour leur générosité !</p>
-
-    <?php
-    // Requête SQL pour récupérer les dons
-    $sql_dons = "SELECT id, montant, date_don FROM dons ORDER BY date_don DESC";
-    $stmt_dons = $pdo->query($sql_dons);
-    $dons = $stmt_dons->fetchAll(PDO::FETCH_ASSOC);
-    ?>
-
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>ID Don</th>
-                <th>Montant</th>
-                <th>Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php if ($dons) {
-                foreach ($dons as $don) {
-                    echo "<tr>
-                            <td>{$don['id']}</td>
-                            <td>{$don['montant']} €</td>
-                            <td>" . date("d/m/Y H:i", strtotime($don['date_don'])) . "</td>
-                          </tr>";
-                }
-            } else {
-                echo "<tr><td colspan='3'>Aucun don reçu pour le moment.</td></tr>";
-            } ?>
-        </tbody>
-    </table>
-
-    <div class="text-center mt-4">
-        <a href="faire-un-don.php" class="btn btn-primary">Faire un don</a>
+<?php include_once '../includes/header.php'; ?>
+<section class="dons-section">
+  <h2>FAIRE UN DON</h2>
+  <div class="dons-grid">
+    <div class="don-item">
+      <img src="assets/images/don-carte.jpg" alt="Don par carte">
+      <h3>PAR CARTE</h3>
+      <p>Effectuez un don en ligne de manière simple et sécurisée.</p>
     </div>
-</div>
+    <div class="don-item">
+      <img src="assets/images/don-virement.jpg" alt="Don par virement">
+      <h3>PAR VIREMENT</h3>
+      <p>Vous pouvez faire un virement bancaire directement sur notre compte.</p>
+    </div>
+    <div class="don-item">
+      <img src="assets/images/don-especes.jpg" alt="Don en espèces">
+      <h3>EN ESPÈCES</h3>
+      <p>Rendez-vous à notre local pour effectuer un don en main propre.</p>
+    </div>
+  </div>
+</section>
 
-<?php include '../includes/footer.php'; ?>
+
+<?php include_once '../includes/footer.php'; ?>

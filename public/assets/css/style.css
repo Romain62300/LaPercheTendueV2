@@ -166,24 +166,7 @@ body {
 }
 
 /* ======= FORMULAIRE DE CONTACT ======= */
-/*.contact-container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 30px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}*/
 
-/*.contact-container {
-    max-width: 750px; 
-    margin: 40px auto;
-    padding: 40px;
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-*/
 
 .contact-container, .parrainage-info {
     max-width: 750px;
@@ -217,17 +200,7 @@ body {
 .form-group label {
     font-weight: bold;
 }
-/*
-.form-group input,
- .form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    max-width: 100%;
-}
-*/
+
 .form-group input,
 .form-group textarea {
     width: 100%;
@@ -252,59 +225,9 @@ input, textarea {
     min-height: 120px;
     resize: vertical;
 }
-/*
-.btn-submit {
-    width: 200px;
 
-    display: block;
-    margin: 20px auto; 
-    padding: 12px;
-    background-color: #C92B36;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-   
-   transition: background 0.3s ease-in-out, transform 0.1s ease-in-out;
-} */
-/*.btn-submit, .btn-parrain {
-    width: 100%;
-    max-width: 200px; 
-    display: block;
-    margin: 20px auto;
-    padding: 12px;
-    background-color: #C92B36;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out, transform 0.1s ease-in-out;
-}
-*/
 
-.btn-submit,
- .btn-parrain {
-    width: 100%;
-    max-width: 250px; /* Légèrement plus large pour plus d'harmonie */
-    display: block;
-    margin: 20px auto; /* Centre correctement le bouton */
-    padding: 12px;
-    background-color: #C92B36;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out, transform 0.1s ease-in-out;
-}
+
 
 
 .btn-submit:hover {
@@ -375,16 +298,7 @@ input, textarea {
     font-size: 16px;
 }
 
-/* ✅ Ajustement du conteneur */
-/*.parrainage-info {
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    padding: 40px;
-    text-align: center;
-    max-width: 750px;
-    margin: 40px auto;
-}*/
+
 
 .parrainage-info ol {
     text-align: left;
@@ -394,22 +308,7 @@ input, textarea {
     line-height: 1.6;
 }
 
-/* ✅ Bouton bien centré */
-/*
-.btn-parrain {
-    display: inline-block;
-    padding: 12px 25px;
-    margin-top: 25px;
-    background-color: #007bff;
-    color: white;
-    font-size: 18px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
-    text-align: center;
-    border: none;
-    cursor: pointer;
-}*/
+
 
 .btn-parrain:hover {
     background-color: #0056b3;
@@ -426,21 +325,7 @@ input, textarea {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* ✅ S'assurer que les champs de formulaire ont la même largeur */
-/*.form-group input[type="text"] ,
-form-group input[type="email"]
-.form-group textarea {
-    height: 40px;
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px !important ;
-    font-family: Arial, sans-serif !important; 
-    box-sizing: border-box; 
-    line-height: 1.5;
 
-}*/
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group textarea {
@@ -499,25 +384,7 @@ body {
     position: relative;
     z-index: 1;
 }
-/*@media screen and (max-width: 768px) {
-    .navbar-collapse {
-        background-color: #2C2C34; 
-        padding: 10px;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        z-index: 1000;
-        max-height: 90vh; 
-        overflow-y: auto; 
-        transition: all 0.3s ease-in-out;
-    }
 
-
-    .navbar-nav {
-        text-align: center;
-    }
-*/
 @media screen and (max-width: 768px) {
     .navbar-collapse {
         background-color: #2C2C34; /* Couleur de fond pour bien voir le menu */
@@ -530,10 +397,7 @@ body {
         z-index: 1000;
         overflow-y: auto; /* Permet le défilement si le menu est grand */
         transition: all 0.3s ease-in-out;
-        .form-group input,
-        .form-group textarea {
-            font-size: 16px;
-        }
+       
     }
 
     .navbar-nav {
@@ -593,7 +457,7 @@ h2.text-center {
     text-transform: uppercase;
     font-weight: bold;
 }
-*/
+
 /* === SOUS-TITRES (TOUTES NOS ACTUALITÉS) === */
 h3.text-center {
     text-align: center;
@@ -791,3 +655,314 @@ section {
 .perche-item .btn i {
     font-size: 1rem;
 }
+/* === Mise en page de la section Qui sommes-nous === */
+.qui-sommes-nous {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .qui-sommes-nous h2.text-center {
+    text-align: center;
+    font-size: 2rem;
+    color: #2E4369;
+    margin: 40px 0 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .intro-text {
+    max-width: 900px;
+    margin: 0 auto 40px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    text-align: justify;
+  }
+
+  /* Grille des blocs valeurs/engagement/équipe */
+  .qui-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+
+  .qui-item {
+    width: 280px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding-bottom: 15px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .qui-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .qui-item img {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .qui-item h3 {
+    font-size: 1.2rem;
+    color: #2E4369;
+    margin: 15px 0 10px;
+    text-transform: uppercase;
+  }
+
+  .qui-item p {
+    font-size: 0.95rem;
+    color: #333;
+    padding: 0 15px;
+  }
+  /* === SECTION : FAIRE UN DON === */
+.dons-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+  }
+  
+  .dons-section h2 {
+    font-size: 1.8rem;
+    color: #2E4369;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  
+  .dons-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+  }
+  
+  .don-item {
+    width: 280px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+  }
+  
+  .don-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .don-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  .don-item h3 {
+    font-size: 1.1rem;
+    margin: 10px 0 5px;
+    color: #2E4369;
+    font-weight: bold;
+  }
+  
+  .don-item p {
+    font-size: 0.95rem;
+    padding: 0 15px 15px;
+    color: #444;
+  }
+ /* === AJOUTS MARS 2025 - INTERACTIONS ET ACCESSIBILITÉ === */
+
+/* 🌸 Effet rosé au survol des images */
+.services-grid .service:hover img,
+.actualites-grid .actualite:hover img,
+.perche-item:hover img {
+    box-shadow: 0 0 15px rgba(255, 0, 128, 0.3); /* Ombre rosée */
+}
+
+/* 🎯 Effet au survol du texte sous les images */
+.services-grid .service p:hover {
+    color: #C92B36;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+/* 🧠 Accessibilité : focus clavier visible */
+a:focus,
+button:focus {
+    outline: 3px solid #FFD700; /* Jaune bien visible */
+    outline-offset: 4px;
+}
+
+/* 📄 Curseur en forme de main pour les liens vers PDF */
+a[href$=".pdf"] {
+    cursor: pointer;
+}
+.form-image-top {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .image-contact {
+    max-width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  .form-style-boite {
+    background-color: #d6d6d6;
+    padding: 30px;
+    max-width: 800px;
+    margin: 40px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.2);
+  }
+  
+  .form-title {
+    color: #1B2A61;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .form-ligne {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .form-colonne {
+    flex: 1;
+    min-width: 45%;
+  }
+  
+  .form-boite input[type="text"],
+  .form-boite input[type="email"],
+  .form-boite input[type="tel"],
+  .form-boite textarea {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form-boite label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  textarea {
+    min-height: 120px;
+    resize: vertical;
+    margin-bottom: 20px;
+  }
+  
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+  }
+
+
+  .checkbox-container input[type="checkbox"] {
+    all: unset;
+    appearance: checkbox;
+    -webkit-appearance: checkbox;
+    width: 18px;
+    height: 18px;
+    accent-color: #C92B36;
+    margin-right: 8px;
+  }
+  
+ 
+  .btn-form-grey {
+    background-color: #C0C0C0;
+    border: 1px solid #999;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .btn-form-grey:hover {
+    background-color: #A0A0A0;
+  }
+  .page-section {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #2E3A4F;
+    color: white;
+    padding: 12px 20px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #2E3A4F;
+    color: white;
+    padding: 12px 20px;
+    font-size: 14px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .cookie-banner p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  .btn-cookie {
+    background-color: #C92B36;
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-cookie:hover {
+    background-color: #a02028;
+  }
+  
+  
+  
