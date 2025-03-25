@@ -30,34 +30,48 @@
   </div>
 </footer>
 
-<!-- ✅ TarteAuCitron.js : bannière cookies RGPD complète -->
+<!-- ✅ JS nécessaires -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/la-perche-tendue/public/assets/js/menu.js"></script>
 
-<!-- Supprime l'ancienne bannière manuelle -->
-<!-- <script src="/la-perche-tendue/public/assets/js/cookies.js"></script> -->
-
-<!-- ✅ Script RGPD TarteAuCitron (localhost = à remplacer en ligne) -->
-<script src="/la-perche-tendue/public/assets/js/tarteaucitron/tarteaucitron.min.js"></script>
-
+<!-- ✅ RGPD - TarteAuCitron en mode LOCAL -->
+<script src="/la-perche-tendue/public/assets/js/tarteaucitron/tarteaucitron.js"></script>
+<script src="/la-perche-tendue/public/assets/js/tarteaucitron/tarteaucitron.fr.js"></script>
 <script>
-  tarteaucitron.init({
-    "privacyUrl": "/la-perche-tendue/public/mentions-legales.php",
-    "hashtag": "#tarteaucitron",
-    "cookieName": "tarteaucitron",
-    "orientation": "bottom",
-    "showAlertSmall": false,
-    "cookieslist": true,
-    "closePopup": false,
-    "showIcon": true,
-    "iconPosition": "BottomRight",
-    "adblocker": false,
-    "DenyAllCta": true,
-    "AcceptAllCta": true,
-    "highPrivacy": true,
-    "handleBrowserDNTRequest": false,
-    "removeCredit": true,
-    "moreInfoLink": true,
-    "useExternalCss": false
+  window.addEventListener('load', function () {
+    if (typeof tarteaucitron !== 'undefined') {
+      tarteaucitron.init({
+        "privacyUrl": "/la-perche-tendue/public/mentions-legales.php",
+        "hashtag": "#tarteaucitron",
+        "cookieName": "tarteaucitron",
+        "orientation": "bottom",
+        "showAlertSmall": true,
+        "cookieslist": true,
+        "closePopup": false,
+        "showIcon": true,
+        "iconPosition": "BottomRight",
+        "adblocker": false,
+        "DenyAllCta": true,
+        "AcceptAllCta": true,
+        "highPrivacy": true,
+        "handleBrowserDNTRequest": false,
+        "removeCredit": true,
+        "moreInfoLink": true,
+        "useExternalCss": false
+      });
+    }
+  });
+</script>
+
+<!-- ✅ Lien Gestion des cookies -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const gestionBtn = document.getElementById('gestionCookies');
+    if (gestionBtn && typeof tarteaucitron !== 'undefined') {
+      gestionBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        tarteaucitron.userInterface.openPanel();
+      });
+    }
   });
 </script>

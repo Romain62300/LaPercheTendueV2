@@ -963,6 +963,13 @@ a[href$=".pdf"] {
   .btn-cookie:hover {
     background-color: #a02028;
   }
+  #tarteaucitronManager {
+    display: none !important;
+  }
+  #rgpd-checklist {
+    max-width: 900px;
+    margin: 0 auto;
+  }
   
   
   
