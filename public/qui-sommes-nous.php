@@ -1,7 +1,7 @@
 <?php include_once '../includes/header.php'; ?>
 
 <section class="qui-sommes-nous container">
-  <h2 class="section-title">QUI SOMMES-NOUS ?</h2>
+  <h2 id="presentation" class="section-title" aria-label="Présentation de l'association">QUI SOMMES-NOUS ?</h2>
 
   <div class="intro-text">
     <p>
@@ -11,27 +11,30 @@
 
   <div class="qui-grid">
     <div class="qui-item">
-      <img src="assets/images/valeurs.jpg" alt="Nos valeurs">
+      <img src="assets/images/valeurs.jpg" alt="Chat blanc illustrant les valeurs de solidarité">
       <h3>Nos valeurs</h3>
       <p>
         Solidarité, dignité, respect et engagement guident chacune de nos actions sur le terrain. Nous croyons en une société plus juste et inclusive.
       </p>
+      <a href="valeurs.php" class="btn btn-sm">En savoir plus</a>
     </div>
 
     <div class="qui-item">
-      <img src="assets/images/equipe.jpg" alt="Notre équipe">
+      <img src="assets/images/equipe.jpg" alt="Photo illustrant l'équipe de l'association">
       <h3>Notre équipe</h3>
       <p>
         Composée de salariés, de bénévoles et de partenaires engagés, notre équipe met ses compétences au service des personnes accompagnées au quotidien.
       </p>
+      <a href="equipe.php" class="btn btn-sm">En savoir plus</a>
     </div>
 
     <div class="qui-item">
-      <img src="assets/images/engagement.jpg" alt="Notre engagement">
+      <img src="assets/images/engagement.jpg" alt="Visuel représentant l'engagement associatif">
       <h3>Notre engagement</h3>
       <p>
         Nous déployons des actions concrètes pour favoriser l’autonomie, le bien-être et l’intégration des publics les plus fragilisés.
       </p>
+      <a href="engagement.php" class="btn btn-sm">En savoir plus</a>
     </div>
   </div>
 </section>

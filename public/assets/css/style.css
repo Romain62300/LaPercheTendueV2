@@ -970,6 +970,28 @@ a[href$=".pdf"] {
     max-width: 900px;
     margin: 0 auto;
   }
+  .qui-item img:hover {
+    transform: scale(1.03);
+    transition: transform 0.3s ease-in-out;
+  }
   
-  
-  
+  .btn-sm {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #d92b40;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-sm:hover {
+    background-color: #b52133;
+    transform: scale(1.05);
+    text-decoration: none;
+}
