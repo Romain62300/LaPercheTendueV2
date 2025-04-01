@@ -3,10 +3,18 @@
 <section class="page-detail container">
   <h2 class="section-title">Faire un don par carte</h2>
   <p>
-    Vous pouvez effectuer un don en ligne de manière simple, rapide et sécurisée grâce à notre système de paiement par carte bancaire.
+    Vous pouvez effectuer un don en ligne en toute sécurité grâce à notre plateforme partenaire.
   </p>
   <p>
-    👉 Un lien ou un module de paiement sécurisé pourra être intégré ici lors de la mise en production (ex : HelloAsso, Stripe, etc.).
+    Cliquez sur le bouton ci-dessous pour accéder au formulaire de paiement sécurisé :
+  </p>
+  
+  <div style="margin: 2rem 0; text-align: center;">
+    <a href="#" class="btn btn-primary">Faire un don par carte</a>
+  </div>
+
+  <p>
+    Toutes les transactions sont cryptées et sécurisées. Un reçu peut vous être délivré sur demande.
   </p>
 </section>
 
