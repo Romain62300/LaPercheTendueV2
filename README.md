@@ -1,3 +1,5 @@
+🇬🇧 [English version here](README-EN.md)
+
 <p align="center">
   <img src="https://img.shields.io/badge/Projet-La%20Perche%20Tendue-blueviolet?style=for-the-badge" alt="Badge Projet">
   <img src="https://img.shields.io/badge/HTML-CSS-JS-PHP-orange?style=for-the-badge" alt="Technos">
@@ -135,3 +137,5 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
 
 Il est possible de présenter ce projet en local grâce à [Ngrok](https://ngrok.com/).  
 Cela permet d’ouvrir temporairement un accès public pour la responsable de l’association ou un recruteur.
+
+
