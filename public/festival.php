@@ -1,3 +1,7 @@
+<?php
+$page_title = "Festival solidaire - La Perche Tendue";
+$page_description = "Participez à notre festival annuel pour découvrir nos actions et nos partenaires.";
+?>
 <?php include_once '../includes/header.php'; ?>
 <section class="page-section">
   <h2 class="text-center">Festival Europalia</h2>

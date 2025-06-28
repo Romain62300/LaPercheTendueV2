@@ -1,21 +1,31 @@
-<?php include '../includes/header.php'; ?>
-<?php require '../database/database.php'; ?>
+<section class="dons-section" aria-labelledby="titre-don">
+  <h2 id="titre-don" class="text-center">Faire un don</h2>
 
-<div class="container mt-5">
-    <h2 class="text-center">Faire un don</h2>
-    <p class="text-center">Votre soutien est précieux pour nous aider à poursuivre nos actions.</p>
+  <div class="dons-grid">
+    
+    <!-- Don par carte -->
+    <article class="don-item">
+      <img src="assets/images/don-carte.jpg" alt="Carte bleue pour don en ligne" loading="lazy">
+      <h3>Par carte</h3>
+      <p>Effectuez un don en ligne de manière simple et sécurisée.</p>
+      <a href="don-carte.php" class="btn-don" aria-label="Faire un don par carte bancaire">Faire un don</a>
+    </article>
 
-    <form action="/la-perche-tendue/src/Controller/DonController.php" method="POST" class="mt-4">
-        <div class="mb-3">
-            <label for="email" class="form-label">Votre email :</label>
-            <input type="email" id="email" name="email" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label for="montant" class="form-label">Montant du don (€) :</label>
-            <input type="number" id="montant" name="montant" class="form-control" step="0.01" min="1" max="10000" required>
-        </div>
-        <button type="submit" class="btn btn-success">Valider le don</button>
-    </form>
-</div>
+    <!-- Don par virement -->
+    <article class="don-item">
+      <img src="assets/images/don-virement.jpg" alt="Pièces et billet pour don par virement" loading="lazy">
+      <h3>Par virement</h3>
+      <p>Vous pouvez faire un virement bancaire directement sur notre compte.</p>
+      <a href="don-virement.php" class="btn-don" aria-label="En savoir plus sur le don par virement">En savoir plus</a>
+    </article>
 
-<?php include '../includes/footer.php'; ?>
+    <!-- Don en espèces -->
+    <article class="don-item">
+      <img src="assets/images/don-especes.jpg" alt="Billets en main pour don en espèces" loading="lazy">
+      <h3>En espèces</h3>
+      <p>Rendez-vous à notre local pour effectuer un don en main propre.</p>
+      <a href="don-especes.php" class="btn-don" aria-label="En savoir plus sur le don en espèces">En savoir plus</a>
+    </article>
+
+  </div>
+</section>

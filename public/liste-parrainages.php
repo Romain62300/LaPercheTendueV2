@@ -1,4 +1,8 @@
 <?php
+$page_title = "Parrainages - La Perche Tendue";
+$page_description = "Consultez la liste des parrainages en cours au sein de notre association.";
+?>
+<?php
 include '../includes/header.php';
 require '../database/database.php';
 require '../src/Model/ParrainageModel.php';

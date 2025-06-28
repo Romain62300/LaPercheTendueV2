@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /includes/
+Disallow: /database/
+Allow: /
+
+Sitemap: https://4390-2a01-cb0c-688-ca00-58dc-4d28-d420-ea22.ngrok-free.app/la-perche-tendue/public/sitemap.xml

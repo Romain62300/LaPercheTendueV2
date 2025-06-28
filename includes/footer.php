@@ -5,7 +5,7 @@
         <h3>Adresse</h3>
         <p>Association PERCHE TENDUE</p>
         <p>Épicerie Solidaire de Lens</p>
-        <p>+32 x xxx xx xx</p>
+        <p>06/17/22/86/55</p>
         <a href="https://www.google.com/maps?q=50.4371,2.8265" target="_blank" class="btn-google-maps">
           <img src="/la-perche-tendue/public/assets/images/google-maps.png" alt="Google Maps"> Adresse
         </a>

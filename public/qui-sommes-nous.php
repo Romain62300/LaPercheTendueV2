@@ -1,3 +1,7 @@
+<?php
+$page_title = "Qui sommes-nous ? - La Perche Tendue";
+$page_description = "Présentation de l'association, ses valeurs, son équipe et son engagement solidaire.";
+?>
 <?php include_once '../includes/header.php'; ?>
 
 <section class="qui-sommes-nous container">

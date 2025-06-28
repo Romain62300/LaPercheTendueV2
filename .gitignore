@@ -11,6 +11,7 @@ Thumbs.db
 # === CONFIG SENSIBLE ===
 .env
 config.php
+includes/config.php
 
 # === DÉPENDANCES ===
 vendor/
@@ -18,7 +19,9 @@ node_modules/
 
 # === BASES DE DONNÉES LOCALES ===
 database/backup.sql
-database/install.sql
+# database/install.sql => garder pour montrer la structure de la BDD
+
+
 
 # === WAMP (Windows) ===
 wamp64/tmp/

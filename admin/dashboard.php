@@ -1,4 +1,8 @@
 <?php
+$page_title = "Tableau de bord - Admin - La Perche Tendue";
+$page_description = "Vue d'ensemble de l'administration du site.";
+?>
+<?php
 session_start();
 
 // Redirection si l'utilisateur n'est pas connecté

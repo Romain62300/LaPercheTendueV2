@@ -1,3 +1,7 @@
+<?php
+$page_title = "Accueil - La Perche Tendue";
+$page_description = "Association solidaire à Lens : épicerie sociale, dons, parrainage et accompagnement.";
+?>
 <?php include_once '../includes/header.php'; ?>
 
 <!-- SECTION : SERVICES EN 1 CLIC -->

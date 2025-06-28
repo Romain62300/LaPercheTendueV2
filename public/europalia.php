@@ -1,3 +1,7 @@
+<?php
+$page_title = "Projet Europalia - La Perche Tendue";
+$page_description = "Présentation du projet Europalia soutenu par l'association La Perche Tendue.";
+?>
 <?php include_once '../includes/header.php'; ?>
 
 <section class="page-section">

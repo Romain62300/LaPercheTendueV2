@@ -1,3 +1,7 @@
+<?php
+$page_title = "#Perche Tendue - Témoignage 3";
+$page_description = "Troisième témoignage inspirant dans notre série #PercheTendue.";
+?>
 <?php include_once '../includes/header.php'; ?>
 
 <section class="page-section">

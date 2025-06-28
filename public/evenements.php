@@ -1,3 +1,7 @@
+<?php
+$page_title = "Événements - La Perche Tendue";
+$page_description = "Retrouvez les événements solidaires organisés par La Perche Tendue à Lens.";
+?>
 <?php include_once '../includes/header.php'; ?>
 
 <section class="page-section">

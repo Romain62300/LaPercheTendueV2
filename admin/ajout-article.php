@@ -1,4 +1,8 @@
 <?php
+$page_title = "Ajouter un article - Admin - La Perche Tendue";
+$page_description = "Page d'ajout d'un nouvel article dans l'administration.";
+?>
+<?php
 require_once '../includes/session.php'; // sécurité session admin
 require_once '../includes/header.php';
 require_once '../database/database.php';

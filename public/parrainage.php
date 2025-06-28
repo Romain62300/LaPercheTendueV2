@@ -1,3 +1,7 @@
+<?php
+$page_title = "Parrainage - La Perche Tendue";
+$page_description = "Soutenez une personne ou une famille via notre programme de parrainage solidaire.";
+?>
 <?php include '../includes/header.php'; ?>
 
 <!--<link rel="stylesheet" href="assets/css/parrainage.css">-->

@@ -1,3 +1,7 @@
+<?php
+$page_title = "Notre équipe - La Perche Tendue";
+$page_description = "Découvrez les membres actifs et bénévoles de l'association La Perche Tendue.";
+?>
 <?php include_once '../includes/header.php'; ?>
 
 <section class="page-section container">

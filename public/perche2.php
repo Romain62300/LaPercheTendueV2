@@ -1,3 +1,7 @@
+<?php
+$page_title = "#Perche Tendue - Témoignage 2";
+$page_description = "Deuxième témoignage de notre campagne solidaire #PercheTendue.";
+?>
 <?php include_once '../includes/header.php'; ?>
 
 <section class="page-section">

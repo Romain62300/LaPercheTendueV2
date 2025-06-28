@@ -1,3 +1,7 @@
+<?php
+$page_title = "Mentions légales - La Perche Tendue";
+$page_description = "Mentions légales et politique de confidentialité du site La Perche Tendue.";
+?>
 <?php include_once '../includes/header.php'; ?>
 
 <section class="mentions-legales container">

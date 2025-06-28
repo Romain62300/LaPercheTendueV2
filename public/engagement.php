@@ -1,3 +1,7 @@
+<?php
+$page_title = "Notre engagement - La Perche Tendue";
+$page_description = "Découvrez les engagements solidaires de notre association.";
+?>
 <?php include_once '../includes/header.php'; ?>
 
 <section class="page-section container">

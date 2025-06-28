@@ -1,3 +1,7 @@
+<?php
+$page_title = "Parade solidaire - La Perche Tendue";
+$page_description = "Retour en images sur la parade organisée par l'association La Perche Tendue.";
+?>
 <?php include_once '../includes/header.php'; ?>
 
 <section class="page-section">

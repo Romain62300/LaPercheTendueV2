@@ -1,3 +1,7 @@
+<?php
+$page_title = "Nos valeurs - La Perche Tendue";
+$page_description = "Les valeurs fondamentales qui guident l'action de La Perche Tendue au quotidien.";
+?>
 <?php include_once '../includes/header.php'; ?>
 
 <section class="page-section container">

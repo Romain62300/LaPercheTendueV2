@@ -225,15 +225,50 @@ input, textarea {
     min-height: 120px;
     resize: vertical;
 }
+.btn {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 20px;
+    border: none; /* important */
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    transition: 0.3s;
+  }
 
 
-
+  .btn:focus,
+  .btn:focus-visible {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
 
 
 .btn-submit:hover {
     background-color: #A2252E;
     transform: scale(1.05); /* Effet d’agrandissement léger */
 }
+.btn-don {
+    background-color: #C92B36;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-bottom: 20px; /* 👍 ajoute de l’air */
+}
+
+.btn-don:hover {
+    background-color: #A2252E;
+    transform: scale(1.05);
+}
+
 /* ✅ Bannière avec image */
 .parrainage-banner {
     position: relative;
@@ -384,6 +419,20 @@ body {
     position: relative;
     z-index: 1;
 }
+
+.don-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* assure la pleine hauteur */
+  }
+  
+  .don-item .btn-don {
+    margin-top: auto;      /* pousse le bouton en bas du bloc */
+    margin-bottom: 20px;   /* espace visuel sous le bouton */
+  }
+  
+
 
 @media screen and (max-width: 768px) {
     .navbar-collapse {
