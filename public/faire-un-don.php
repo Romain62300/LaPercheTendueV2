@@ -1,5 +1,11 @@
-<section class="dons-section" aria-labelledby="titre-don">
-  <h2 id="titre-don" class="text-center">Faire un don</h2>
+<?php
+$page_title = "Faire un don - La Perche Tendue";
+$page_description = "Soutenez l'association La Perche Tendue en faisant un don.";
+?>
+<?php include_once '../includes/header.php'; ?>
+
+<section class="dons-section container" aria-labelledby="titre-don">
+  <h2 id="titre-don" class="section-title">Faire un don</h2>
 
   <div class="dons-grid">
     
@@ -29,3 +35,5 @@
 
   </div>
 </section>
+
+<?php include_once '../includes/footer.php'; ?>

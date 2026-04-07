@@ -1,4 +1,3 @@
-<?php include_once '../includes/header.php'; ?>
 <?php
 $page_title = "#Perche Tendue - Témoignage 1";
 $page_description = "Découvrez le premier témoignage de notre campagne #PercheTendue.";

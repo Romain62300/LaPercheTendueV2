@@ -1,24 +1,36 @@
-<meta charset="UTF-8">
-<title>La Perche Tendue</title>
-<meta name="description" content="Association solidaire à Lens : épicerie sociale, dons, accompagnement et entraide.">
-<!-- Open Graph -->
-<meta property="og:title" content="La Perche Tendue" />
-<meta property="og:description" content="Association solidaire à Lens : épicerie sociale, dons, accompagnement et entraide." />
-<meta property="og:image" content="https://ton-site.com/public/assets/images/logo.png" />
-<meta property="og:url" content="https://ton-site.com/contact.php" />
-<meta property="og:type" content="website">
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="La Perche Tendue">
-<meta name="twitter:description" content="Association solidaire à Lens : épicerie sociale, dons, accompagnement et entraide.">
-<meta name="twitter:image" content="https://ton-site.com/public/assets/images/logo.png">
-<link rel="canonical" href="https://ton-site.com/contact.php">
-<link rel="icon" href="/public/assets/images/favicon.png" type="image/png">
 <?php
 $page_title = "Contact - La Perche Tendue";
 $page_description = "Contactez l'association La Perche Tendue via notre formulaire sécurisé.";
 ?>
 <?php include_once '../includes/header.php'; ?>
+
+<!-- Messages de retour -->
+<?php if (isset($_GET['succes'])): ?>
+  <div style="max-width:800px; margin:20px auto; padding:15px; background:#d4edda; border:1px solid #28a745; border-radius:8px; color:#155724; text-align:center;">
+    ✅ Votre message a bien été envoyé ! Nous vous répondrons dans les plus brefs délais.
+  </div>
+<?php endif; ?>
+
+<?php if (isset($_GET['erreur'])): ?>
+  <div style="max-width:800px; margin:20px auto; padding:15px; background:#f8d7da; border:1px solid #dc3545; border-radius:8px; color:#721c24; text-align:center;">
+    <?php
+    switch ($_GET['erreur']) {
+        case 'champs_manquants':
+            echo '⚠️ Veuillez remplir tous les champs obligatoires.';
+            break;
+        case 'email_invalide':
+            echo '⚠️ L\'adresse email saisie n\'est pas valide.';
+            break;
+        case 'rgpd':
+            echo '⚠️ Vous devez accepter la politique de confidentialité.';
+            break;
+        case 'envoi_impossible':
+            echo '❌ Une erreur est survenue lors de l\'envoi. Veuillez réessayer ou nous contacter directement.';
+            break;
+    }
+    ?>
+  </div>
+<?php endif; ?>
 
 <!-- Image du haut -->
 <section class="form-image-top">
@@ -56,11 +68,11 @@ $page_description = "Contactez l'association La Perche Tendue via notre formulai
     <textarea id="message" name="message" placeholder="Entrez votre message ici" required></textarea>
 
     <div class="checkbox-container">
-  <input type="checkbox" id="rgpd" name="rgpd" required>
-  <label for="rgpd">J’accepte la politique de confidentialité</label>
-</div>
+      <input type="checkbox" id="rgpd" name="rgpd" required>
+      <label for="rgpd">J'accepte la politique de confidentialité</label>
+    </div>
 
-    <button type="submit" class="btn-form-grey">Envoyé</button>
+    <button type="submit" class="btn-form-grey">Envoyer</button>
   </form>
 </section>
 

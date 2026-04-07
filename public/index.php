@@ -17,7 +17,7 @@ $page_description = "Association solidaire à Lens : épicerie sociale, dons, pa
     <div class="service">
       <a href="evenements.php">
         <img src="assets/images/actu2.jpg?v=2" alt="Événements">
-        <p>« NOS ÉVÈNEMENTS »</p>
+        <p>« NOS ÉVÉNEMENTS »</p>
       </a>
     </div>
     <div class="service">
@@ -39,7 +39,7 @@ $page_description = "Association solidaire à Lens : épicerie sociale, dons, pa
       <p>Présentation des actions solidaires menées par l’association auprès des personnes en difficulté.</p>
     </a>
     <a href="festival.php" class="actualite" title="Voir la page du Festival Europalia">
-      <img src="assets/images/festival-poisson.jpg?v=2" alt="Festival">
+      <img src="assets/images/festival.jpg?v=2" alt="Festival">
       <h3>« FESTIVAL EUROPALIA »</h3>
       <p>Retour sur un événement culturel soutenu par l’association et ses bénévoles.</p>
     </a>
@@ -53,7 +53,7 @@ $page_description = "Association solidaire à Lens : épicerie sociale, dons, pa
 
 <!-- SECTION : PERCHE TENDUE -->
 <section class="perche-section container">
-  <h2 class="text-center text-blue">« PERCHE TENDUE »</h2>
+  <h2 class="text-center">« PERCHE TENDUE »</h2>
   <div class="perche-grid">
     <div class="perche-item">
       <img src="assets/images/perche1.jpg?v=2" alt="Perche 1">
