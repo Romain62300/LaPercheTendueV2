@@ -1,13 +1,11 @@
 html {
     font-size: 16px;
-    text-size-adjust: 100%; /* Ajustement intelligent de la taille */
-    -webkit-text-size-adjust: none; /* Optionnel : Désactive l'ajustement sur WebKit (Safari) */
-   
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: none;
 }
 
-
 .top-header {
-    background-color: #C62828; /* Rouge */
+    background-color: #C62828;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -31,18 +29,17 @@ html {
     color: #C0C0C0;
     font-size: 1.5rem;
     margin-left: 15px;
-    gap: 15px; /* Espacement entre les icônes */
-    padding-right: 15px; /* Ajoute un peu d'espace à droite */
+    gap: 15px;
+    padding-right: 15px;
 }
 
 .navbar {
-    background-color: #2C2C34 !important; /* Noir légèrement éclairci */
+    background-color: #2C2C34 !important;
     padding: 10px 0;
     width: 100%;
-    border-radius: 0; /* Supprime toute bordure arrondie */
+    border-radius: 0;
     box-shadow: none;
 }
-
 
 .navbar-nav {
     display: flex;
@@ -55,7 +52,7 @@ html {
 }
 
 .navbar-nav .nav-link {
-    color: white !important; 
+    color: white !important;
     font-weight: bold;
     text-transform: uppercase;
     font-size: 1rem;
@@ -64,22 +61,13 @@ html {
 }
 
 .navbar-nav .nav-link:hover {
-    color: #FFD700 !important; /* Jaune */
+    color: #FFD700 !important;
 }
-.navbar-collapse {
-    background-color: transparent !important;
-    padding: 0;
-}
-.navbar-nav,
-.navbar-nav .nav-item,
-.navbar-nav .nav-link {
-    background-color: transparent !important;
-}
+
 .container {
     max-width: 100%;
     padding: 0;
 }
-
 
 /* ======= FOOTER ======= */
 .footer {
@@ -88,9 +76,9 @@ html {
     padding: 20px 0;
     text-align: center;
     width: 100%;
-    padding-bottom: 40px; /* Augmente l'espace en bas pour éviter le chevauchement */
+    padding-bottom: 50px;
     position: relative;
-    z-index: 1; /* S'assure que la barre grise ne passe pas dessus */
+    z-index: 1;
 }
 
 .footer-content {
@@ -103,54 +91,34 @@ html {
     padding-bottom: 20px;
 }
 
-/* Espacement entre Adresse et Horaires */
-.footer-section {
-    width: 40%;
-    padding: 10px;
-}
+.footer-section { width: 40%; padding: 10px; }
+.footer-section.adresse { text-align: left; }
+.footer-section.horaires { text-align: right; }
 
-.footer-section.adresse {
-    text-align: left;
-}
-
-.footer-section.horaires {
-    text-align: right;
-}
-
-/* ===== Barre grise collée au footer ===== */
 .footer-bottom-container {
     background-color: #B0A9A6;
     color: white;
     padding: 10px 0;
     text-align: center;
     width: 100%;
-    position: absolute; /* Attachée au footer */
-    bottom: 0;
-    left: 0;
+    position: absolute;
+    bottom: 0; left: 0;
     font-size: 14px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Évite que la barre grise flotte en cas de petit contenu */
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-.wrapper {
-    flex: 1;
-}
+.wrapper { flex: 1; }
 
-/* Suppression de l'icône Google Maps qui gêne */
-.footer-section a.btn-google-maps img {
-    max-width: 20px;
-    height: auto;
-}
+.footer-section a.btn-google-maps img { max-width: 20px; height: auto; }
 
-/* Liens dans la barre grise */
 .footer-bottom-container a {
     color: white !important;
     text-decoration: none;
@@ -164,13 +132,10 @@ body {
     text-decoration: underline;
 }
 
-/* ======= FORMULAIRE DE CONTACT ======= */
-
-
+/* ======= FORMULAIRES ======= */
 .contact-container, .parrainage-info {
     max-width: 750px;
-    /*margin: 40px auto 40px; /* Ajout d’un margin-bottom */
-    margin: 40px auto 80px; /* Augmente l’espace sous le formulaire */
+    margin: 40px auto 80px;
     padding: 40px;
     background: #ffffff;
     border-radius: 8px;
@@ -184,34 +149,20 @@ body {
     font-weight: bold;
 }
 
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
+.contact-form { display: flex; flex-direction: column; gap: 15px; }
+.form-group { display: flex; flex-direction: column; gap: 5px; }
+.form-group label { font-weight: bold; }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.form-group label {
-    font-weight: bold;
-}
-
-.form-group input,
-.form-group textarea {
+.form-group input, .form-group textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box; /* Évite les débordements */
+    box-sizing: border-box;
     max-width: 100%;
-    font-size: 16px; /* Taille fixe et uniforme */
-    line-height: 1.5; /* Améliore l’espacement du texte */
+    font-size: 16px;
+    line-height: 1.5;
 }
-
 
 input, textarea {
     appearance: none;
@@ -219,36 +170,28 @@ input, textarea {
     font-family: inherit;
 }
 
+.form-group textarea { min-height: 120px; resize: vertical; }
 
-.form-group textarea {
-    min-height: 120px;
-    resize: vertical;
-}
 .btn {
     background-color: #dc3545;
     color: white;
     padding: 10px 20px;
-    border: none; /* important */
+    border: none;
     border-radius: 8px;
     text-decoration: none;
     display: inline-block;
     font-weight: bold;
     transition: 0.3s;
-  }
+}
 
-
-  .btn:focus,
-  .btn:focus-visible {
+.btn:focus, .btn:focus-visible {
     outline: none !important;
     border: none !important;
     box-shadow: none !important;
-  }
-
-
-.btn-submit:hover {
-    background-color: #A2252E;
-    transform: scale(1.05); /* Effet d’agrandissement léger */
 }
+
+.btn-submit:hover { background-color: #A2252E; transform: scale(1.05); }
+
 .btn-don {
     background-color: #C92B36;
     color: white;
@@ -260,19 +203,15 @@ input, textarea {
     font-weight: bold;
     font-size: 1rem;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-bottom: 20px; /* 👍 ajoute de l’air */
+    margin-bottom: 20px;
 }
 
-.btn-don:hover {
-    background-color: #A2252E;
-    transform: scale(1.05);
-}
+.btn-don:hover { background-color: #A2252E; transform: scale(1.05); }
 
-/* ✅ Bannière avec image */
 .parrainage-banner {
     position: relative;
     width: 100%;
-    max-height: 250px; /* Ajuste la hauteur */
+    max-height: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -281,30 +220,21 @@ input, textarea {
     color: white;
     border-radius: 8px;
     overflow: hidden;
-    padding: 20px; /* Espace intérieur */
-}
-
-/* ✅ Image de fond bien centrée */
-.parrainage-banner {
+    padding: 20px;
     background: url('../images/logo.jpg') no-repeat center center;
     background-size: cover;
 }
 
-/* ✅ Overlay pour améliorer la lisibilité */
 .parrainage-banner::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Assombrit l’image */
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
 }
 
-
 .parrainage-banner h2 {
-    position: relative;
-    z-index: 1;
+    position: relative; z-index: 1;
     background: rgba(0, 0, 0, 0.7);
     padding: 12px 20px;
     border-radius: 5px;
@@ -313,26 +243,13 @@ input, textarea {
 }
 
 .parrainage-banner p {
-    position: relative;
-    z-index: 1;
+    position: relative; z-index: 1;
     background: rgba(0, 0, 0, 0.6);
     padding: 8px 15px;
     border-radius: 5px;
     font-size: 16px;
     margin-top: 5px;
 }
-
-/* ✅ Alignement du texte */
-.parrainage-banner h2 {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.parrainage-banner p {
-    font-size: 16px;
-}
-
-
 
 .parrainage-info ol {
     text-align: left;
@@ -342,16 +259,10 @@ input, textarea {
     line-height: 1.6;
 }
 
+.btn-parrain:hover { background-color: #0056b3; transform: scale(1.05); }
 
-
-.btn-parrain:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-}
-/* ✅ Uniformiser la largeur des formulaires */
-.form-container, 
-.contact-container {
-    max-width: 750px; /* Aligné avec .parrainage-info */
+.form-container, .contact-container {
+    max-width: 750px;
     margin: 40px auto;
     padding: 40px;
     background: #ffffff;
@@ -359,13 +270,12 @@ input, textarea {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group textarea {
     display: block;
     width: 100%;
-    height: 45px; /* Assure une taille identique */
+    height: 45px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -374,16 +284,14 @@ input, textarea {
     box-sizing: border-box;
     line-height: 1.5;
 }
-.form-group textarea {
-    height: 120px; /* Taille adaptée pour le champ message */
-}
 
-/* ✅ Harmoniser le bouton */
+.form-group textarea { height: 120px; }
+
 .btn-submit, .btn-parrain {
     width: 100%;
-    max-width: 200px; /* Pour ne pas être trop large */
+    max-width: 200px;
     display: block;
-    margin: 20px auto; /* Centré */
+    margin: 20px auto;
     padding: 12px;
     background-color: #C92B36;
     color: white;
@@ -396,107 +304,124 @@ input, textarea {
     transition: background 0.3s ease-in-out, transform 0.1s ease-in-out;
 }
 
-.btn-submit:hover, .btn-parrain:hover {
-    background-color: #A2252E;
-    transform: scale(1.05);
-}
-
-/* ✅ Correction du footer pour éviter le chevauchement */
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.wrapper {
-    flex: 1;
-}
-
-/* ✅ Éviter le chevauchement du footer */
-.footer {
-    padding-bottom: 50px;
-    position: relative;
-    z-index: 1;
-}
+.btn-submit:hover, .btn-parrain:hover { background-color: #A2252E; transform: scale(1.05); }
 
 .don-item {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%; /* assure la pleine hauteur */
-  }
-  
-  .don-item .btn-don {
-    margin-top: auto;      /* pousse le bouton en bas du bloc */
-    margin-bottom: 20px;   /* espace visuel sous le bouton */
-  }
-  
-
-
-@media screen and (max-width: 768px) {
-    .navbar-collapse {
-        background-color: #2C2C34; /* Couleur de fond pour bien voir le menu */
-        padding: 10px;
-        position: fixed; /* Le menu reste bien positionné */
-        top: 80px; /* Ajuste selon la hauteur du header */
-        left: 0;
-        width: 100%;
-        height: 100vh; /* Prend toute la hauteur de l'écran */
-        z-index: 1000;
-        overflow-y: auto; /* Permet le défilement si le menu est grand */
-        transition: all 0.3s ease-in-out;
-       
-    }
-
-    .navbar-nav {
-        text-align: center;
-        display: flex;
-        flex-direction: column; /* Met les liens en colonne */
-        gap: 10px;
-    }
-
-    .navbar-toggler {
-        position: absolute;
-        left: 10px;
-        top: 10px;
-        z-index: 1100; /* Toujours visible */
-    }
+    height: 100%;
 }
 
+.don-item .btn-don { margin-top: auto; margin-bottom: 20px; }
 
-    .navbar-nav .nav-item {
-        margin: 5px 0; /* Espacement entre les liens */
-    }
-
-    @media screen and (max-width: 500px) {
-        .parrainage-banner h2 {
-            font-size: 1.4rem;
-            padding: 10px;
-            line-height: 1.4;
-        }
-    
-        .parrainage-banner p {
-            font-size: 1rem;
-            padding: 8px;
-            line-height: 1.3;
-        }
-    }
-    
-
-@media screen and (max-width: 400px) {
-    .parrainage-banner h2 {
-        font-size: 1.2rem;
-    }
-    .parrainage-banner p {
-        font-size: 0.9rem;
-    }
+/* ======= COOKIE ======= */
+.cookie-banner {
+    position: fixed;
+    bottom: 0; left: 0;
+    width: 100%;
+    background-color: #2E3A4F;
+    color: white;
+    padding: 12px 20px;
+    font-size: 14px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
 }
-/* Correction pour Safari */
-th {
-    text-align: -webkit-match-parent; /* Pour Chrome et Edge */
-   text-align: inherit;
+
+.cookie-banner p { margin: 0; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+.btn-cookie {
+    background-color: #C92B36;
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
-/* === TITRES PRINCIPAUX === */
+
+.btn-cookie:hover { background-color: #a02028; }
+#tarteaucitronManager { display: none !important; }
+#rgpd-checklist { max-width: 900px; margin: 0 auto; }
+
+/* ======= STYLE BOITE CONTACT ======= */
+.form-image-top { text-align: center; margin-top: 30px; }
+
+.image-contact {
+    max-width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.form-style-boite {
+    background-color: #d6d6d6;
+    padding: 30px;
+    max-width: 800px;
+    margin: 40px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.2);
+}
+
+.form-title { color: #1B2A61; font-size: 1.5rem; font-weight: bold; margin-bottom: 20px; }
+
+.form-ligne {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.form-colonne { flex: 1; min-width: 45%; }
+
+.form-boite input[type="text"],
+.form-boite input[type="email"],
+.form-boite input[type="tel"],
+.form-boite textarea {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-boite label { display: block; margin-bottom: 5px; font-weight: bold; color: #333; }
+
+textarea { min-height: 120px; resize: vertical; margin-bottom: 20px; }
+
+.checkbox-container { display: flex; align-items: center; gap: 10px; margin: 20px 0; }
+
+.checkbox-container input[type="checkbox"] {
+    all: unset;
+    appearance: checkbox;
+    -webkit-appearance: checkbox;
+    width: 18px; height: 18px;
+    accent-color: #C92B36;
+    margin-right: 8px;
+}
+
+.btn-form-grey {
+    background-color: #C0C0C0;
+    border: 1px solid #999;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+.btn-form-grey:hover { background-color: #A0A0A0; }
+
+/* ======= SECTIONS ======= */
+.page-section { max-width: 1000px; margin: 40px auto; padding: 0 20px; text-align: center; }
+
+th { text-align: -webkit-match-parent; text-align: inherit; }
+
 h2.text-center {
     text-align: center;
     font-size: 2rem;
@@ -506,11 +431,10 @@ h2.text-center {
     font-weight: bold;
 }
 
-/* === SOUS-TITRES (TOUTES NOS ACTUALITÉS) === */
 h3.text-center {
     text-align: center;
     font-size: 1.5rem;
-    background-color: #2E3A4F; /* fond bleu foncé cohérent */
+    background-color: #2E3A4F;
     color: white;
     padding: 10px 0;
     margin: 60px auto 20px;
@@ -520,7 +444,6 @@ h3.text-center {
     border-radius: 4px;
 }
 
-/* === ESPACEMENT GÉNÉRAL DES SECTIONS === */
 section {
     width: 100%;
     max-width: 1200px;
@@ -529,7 +452,7 @@ section {
     margin-bottom: 60px;
 }
 
-/* === BLOC SERVICES EN 1 CLIC === */
+/* ======= GRILLES ======= */
 .services-grid {
     display: flex;
     justify-content: center;
@@ -540,19 +463,22 @@ section {
 }
 
 .services-grid .service {
-    width: 200px;
+    width: 300px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
 }
 
-.services-grid .service:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
+.services-grid .service:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+
 .services-grid .service img {
     width: 100%;
-    height: 160px;
-    object-fit: cover;
+    height: 220px !important;
+    object-fit: cover !important;
     border-radius: 8px;
+    display: block;
 }
 
 .services-grid .service p {
@@ -561,15 +487,14 @@ section {
     font-weight: bold;
     margin-top: 5px;
     text-transform: uppercase;
-    text-decoration: none;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.services-grid .service a {
-    text-decoration: none;
-    color: inherit;
-}
+.services-grid .service a { text-decoration: none; color: inherit; }
 
-/* === BLOC ACTUALITÉS === */
 .actualites-grid {
     display: flex;
     justify-content: center;
@@ -578,7 +503,7 @@ section {
     align-items: stretch;
     margin-bottom: 60px;
 }
-/*
+
 .actualite {
     width: 300px;
     background-color: #fff;
@@ -588,50 +513,20 @@ section {
     box-shadow: 0 0 10px rgba(201, 43, 54, 0.25);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
 }
 
-*/
+.actualite:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(201, 43, 54, 0.3); }
 
-.actualite {
-    width: 300px;
-    background-color: #fff;
-    border-radius: 6px;
-    padding: 15px;
-    margin-bottom: 20px;
-    box-shadow: 0 0 10px rgba(201, 43, 54, 0.25);
+.actualite img { width: 100%; height: 220px !important; object-fit: cover !important; display: block; }
 
-    display: flex;
-    flex-direction: column;
-
-    height: 100%; /* IMPORTANT */
-}
-.actualite:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(201, 43, 54, 0.3);
-}
-/*
-.actualite img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 5px;
-}*/
-
-.actualite img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    display: block;
-}
 .actualite h3 {
     font-size: 1.1rem;
     color: #2E4369;
     margin-top: 10px;
     font-weight: bold;
     text-align: center;
-    min-height: 60px;
+    min-height: 70px;
 }
 
 .actualite p {
@@ -639,10 +534,10 @@ section {
     line-height: 1.4;
     color: #333;
     text-align: justify;
-    flex-grow: 1; /* pousse le contenu pour aligner */
+    flex-grow: 1;
+    min-height: 120px;
 }
 
-/* === BLOC #PERCHE TENDUE === */
 .perche-grid {
     display: flex;
     justify-content: center;
@@ -653,28 +548,27 @@ section {
 }
 
 .perche-item {
-    width: 280px;
+    width: 300px;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     border-radius: 6px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
     padding-bottom: 10px;
     background-color: #fff;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
 }
 
-.perche-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(201, 43, 54, 0.3);
-}
+.perche-item:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(201, 43, 54, 0.3); }
 
 .perche-item img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: 220px !important;
+    object-fit: cover !important;
     border-radius: 6px 6px 0 0;
+    display: block;
 }
 
 .perche-item p {
@@ -682,27 +576,12 @@ section {
     color: #2E4369;
     font-weight: bold;
     font-size: 0.95rem;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.perche-item a.btn {
-    text-align: center;
-    display: inline-block;
-    margin-top: 5px;
-    padding: 6px 12px;
-    background-color: #C92B36;
-    color: white;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: bold;
-    transition: background 0.2s ease-in-out;
-}
-
-.perche-item a.btn:hover {
-    background-color: #A2252E;
-}
-
-/* === STYLE DU BOUTON TÉLÉCHARGER === */
 .perche-item .btn {
     display: flex;
     justify-content: center;
@@ -716,339 +595,84 @@ section {
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     transition: background 0.2s ease-in-out, transform 0.2s ease;
 }
 
-.perche-item .btn:hover {
-    background-color: #A2252E;
-    transform: translateY(-2px);
-}
+.perche-item .btn:hover { background-color: #A2252E; transform: translateY(-2px); }
 
-.perche-item .btn i {
-    font-size: 1rem;
-}
-/* === Mise en page de la section Qui sommes-nous === */
-.qui-sommes-nous {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
+/* ======= QUI SOMMES NOUS ======= */
+.qui-sommes-nous { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-  .qui-sommes-nous h2.text-center {
-    text-align: center;
-    font-size: 2rem;
-    color: #2E4369;
-    margin: 40px 0 30px;
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-
-  .intro-text {
+.intro-text {
     max-width: 900px;
     margin: 0 auto 40px;
     font-size: 1.1rem;
     line-height: 1.6;
     color: #333;
     text-align: justify;
-  }
+}
 
-  /* Grille des blocs valeurs/engagement/équipe */
-  .qui-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin-bottom: 60px;
-  }
+.qui-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; margin-bottom: 60px; }
 
-  .qui-item {
+.qui-item {
     width: 280px;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
     padding-bottom: 15px;
     text-align: center;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
+}
 
-  .qui-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  }
+.qui-item:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+.qui-item img { width: 100%; border-radius: 8px 8px 0 0; height: 180px; object-fit: cover; }
+.qui-item img:hover { transform: scale(1.03); transition: transform 0.3s ease-in-out; }
+.qui-item h3 { font-size: 1.2rem; color: #2E4369; margin: 15px 0 10px; text-transform: uppercase; }
+.qui-item p { font-size: 0.95rem; color: #333; padding: 0 15px; }
 
-  .qui-item img {
-    width: 100%;
-    border-radius: 8px 8px 0 0;
-    height: 180px;
-    object-fit: cover;
-  }
+/* ======= DONS ======= */
+.dons-section { max-width: 1200px; margin: 40px auto; padding: 0 20px; text-align: center; }
 
-  .qui-item h3 {
-    font-size: 1.2rem;
-    color: #2E4369;
-    margin: 15px 0 10px;
-    text-transform: uppercase;
-  }
-
-  .qui-item p {
-    font-size: 0.95rem;
-    color: #333;
-    padding: 0 15px;
-  }
-  /* === SECTION : FAIRE UN DON === */
-.dons-section {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-    text-align: center;
-  }
-  
-  .dons-section h2 {
+.dons-section h2 {
     font-size: 1.8rem;
     color: #2E4369;
     margin-bottom: 40px;
     text-transform: uppercase;
     font-weight: bold;
-  }
-  
-  .dons-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-  }
-  
-  .don-item {
-    width: 280px;
+}
+
+.dons-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; }
+
+.don-item {
+    width: 300px;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
-  }
-  
-  .don-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  }
-  
-  .don-item img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-  }
-  
-  .don-item h3 {
-    font-size: 1.1rem;
-    margin: 10px 0 5px;
-    color: #2E4369;
-    font-weight: bold;
-  }
-  
-  .don-item p {
-    font-size: 0.95rem;
-    padding: 0 15px 15px;
-    color: #444;
-  }
- /* === AJOUTS MARS 2025 - INTERACTIONS ET ACCESSIBILITÉ === */
+    display: flex;
+    flex-direction: column;
+}
 
-/* 🌸 Effet rosé au survol des images */
+.don-item:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+.don-item img { width: 100%; height: 220px !important; object-fit: cover !important; display: block; }
+.don-item h3 { font-size: 1.1rem; margin: 10px 0 5px; color: #2E4369; font-weight: bold; }
+.don-item p { font-size: 0.95rem; padding: 0 15px 15px; color: #444; }
+.don-item .btn-don, .don-item .btn-sm { margin-top: auto; display: block; width: 100%; text-align: center; margin-bottom: 0; }
+
+/* ======= ACCESSIBILITÉ ======= */
 .services-grid .service:hover img,
 .actualites-grid .actualite:hover img,
-.perche-item:hover img {
-    box-shadow: 0 0 15px rgba(255, 0, 128, 0.3); /* Ombre rosée */
-}
+.perche-item:hover img { box-shadow: 0 0 15px rgba(255, 0, 128, 0.3); }
 
-/* 🎯 Effet au survol du texte sous les images */
-.services-grid .service p:hover {
-    color: #C92B36;
-    text-decoration: underline;
-    transition: color 0.3s ease;
-}
+.services-grid .service p:hover { color: #C92B36; text-decoration: underline; transition: color 0.3s ease; }
 
-/* 🧠 Accessibilité : focus clavier visible */
-a:focus,
-button:focus {
-    outline: 3px solid #FFD700; /* Jaune bien visible */
-    outline-offset: 4px;
-}
+a:focus, button:focus { outline: 3px solid #FFD700; outline-offset: 4px; }
+a[href$=".pdf"] { cursor: pointer; }
 
-/* 📄 Curseur en forme de main pour les liens vers PDF */
-a[href$=".pdf"] {
-    cursor: pointer;
-}
-.form-image-top {
-    text-align: center;
-    margin-top: 30px;
-  }
-  
-  .image-contact {
-    max-width: 250px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
-  
-  .form-style-boite {
-    background-color: #d6d6d6;
-    padding: 30px;
-    max-width: 800px;
-    margin: 40px auto;
-    border-radius: 10px;
-    box-shadow: 0 0 12px rgba(0,0,0,0.2);
-  }
-  
-  .form-title {
-    color: #1B2A61;
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  .form-ligne {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-  }
-  
-  .form-colonne {
-    flex: 1;
-    min-width: 45%;
-  }
-  
-  .form-boite input[type="text"],
-  .form-boite input[type="email"],
-  .form-boite input[type="tel"],
-  .form-boite textarea {
-    width: 100%;
-    padding: 8px 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .form-boite label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  textarea {
-    min-height: 120px;
-    resize: vertical;
-    margin-bottom: 20px;
-  }
-  
-  .checkbox-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 20px 0;
-  }
-
-
-  .checkbox-container input[type="checkbox"] {
-    all: unset;
-    appearance: checkbox;
-    -webkit-appearance: checkbox;
-    width: 18px;
-    height: 18px;
-    accent-color: #C92B36;
-    margin-right: 8px;
-  }
-  
- 
-  .btn-form-grey {
-    background-color: #C0C0C0;
-    border: 1px solid #999;
-    padding: 10px 25px;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    display: block;
-    margin: 0 auto;
-  }
-  
-  .btn-form-grey:hover {
-    background-color: #A0A0A0;
-  }
-  .page-section {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 0 20px;
-    text-align: center;
-}
-.cookie-banner {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #2E3A4F;
-    color: white;
-    padding: 12px 20px;
-    font-size: 14px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
-  }
-  
-  .cookie-banner {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #2E3A4F;
-    color: white;
-    padding: 12px 20px;
-    font-size: 14px;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
-  }
-  
-  .cookie-banner p {
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  
-  .btn-cookie {
-    background-color: #C92B36;
-    color: #fff;
-    border: none;
-    padding: 6px 14px;
-    font-size: 14px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn-cookie:hover {
-    background-color: #a02028;
-  }
-  #tarteaucitronManager {
-    display: none !important;
-  }
-  #rgpd-checklist {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .qui-item img:hover {
-    transform: scale(1.03);
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .btn-sm {
+/* ======= BOUTONS ======= */
+.btn-sm {
     display: inline-block;
     margin-top: 10px;
     padding: 8px 16px;
@@ -1059,110 +683,90 @@ a[href$=".pdf"] {
     text-decoration: none;
     font-weight: bold;
     font-size: 0.9rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.btn-sm:hover {
-    background-color: #b52133;
-    transform: scale(1.05);
-    text-decoration: none;
-}
-/* === CORRECTION FINALE ALIGNEMENT IMAGES ACCUEIL === */
+.btn-sm:hover { background-color: #b52133; transform: scale(1.05); text-decoration: none; }
 
-.services-grid,
-.actualites-grid,
-.perche-grid {
-  align-items: stretch;
-}
+/* ======= RESPONSIVE MOBILE ======= */
+@media screen and (max-width: 991px) {
 
-.services-grid .service,
-.actualite,
-.perche-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-}
+    /* Header */
+    .top-header {
+        padding: 10px 15px;
+        flex-wrap: nowrap;
+        overflow: hidden;
+    }
 
-.services-grid .service {
-  width: 300px;
-}
+    .top-header .logo img {
+        height: 50px;
+    }
 
-.actualite {
-  width: 300px;
-}
+    .top-header h1 {
+        font-size: 0.95rem;
+        padding: 0 8px;
+    }
 
-.perche-item {
-  width: 300px;
-}
+    .top-header .social-icons a {
+        font-size: 1.1rem;
+        margin-left: 8px;
+        padding-right: 0;
+    }
 
-.services-grid .service img,
-.actualite img,
-.perche-item img {
-  width: 100%;
-  height: 220px !important;
-  object-fit: cover !important;
-  object-position: center center !important;
-  display: block;
-}
+    /* Navbar */
+    .navbar-collapse {
+        background-color: #2C2C34;
+        padding: 10px 0;
+        width: 100%;
+        z-index: 1000;
+    }
 
-/* Ajustements visuels image par image */
-.services-grid .service:nth-child(1) img,
-.actualites-grid .actualite:nth-child(1) img {
-  object-position: center 35% !important;
-}
+    .navbar-nav {
+        text-align: center !important;
+        flex-direction: column;
+        gap: 0 !important;
+        background-color: #2C2C34 !important;
+        width: 100% !important;
+        justify-content: center !important;
+    }
 
-.services-grid .service:nth-child(2) img {
-  object-position: center center !important;
-}
+    .navbar-nav .nav-item {
+        margin: 0 !important;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        background-color: transparent !important;
+        width: 100%;
+    }
 
-.services-grid .service:nth-child(3) img {
-  object-position: center center !important;
-}
+    .navbar-nav .nav-link {
+        padding: 12px 20px !important;
+        background-color: transparent !important;
+        width: 100%;
+        display: block;
+    }
 
-.actualites-grid .actualite:nth-child(2) img {
-  object-position: center center !important;
-}
+    .navbar-toggler {
+        border-color: rgba(255,255,255,0.5);
+        margin-left: auto;
+    }
 
-.actualites-grid .actualite:nth-child(3) img {
-  object-position: center center !important;
-}
+    .navbar-toggler-icon { filter: invert(1); }
 
-.services-grid .service p,
-.perche-item p {
-  min-height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    /* Sections */
+    section { padding: 0 10px; }
 
-.actualite h3 {
-  min-height: 70px;
+    .form-ligne { flex-direction: column; }
+    .form-colonne { min-width: 100%; }
+
+    .form-style-boite { padding: 15px; margin: 20px 10px; }
 }
 
-.actualite p {
-  min-height: 120px;
-}
-.don-item img {
-    width: 100%;
-    height: 220px !important;
-    object-fit: cover !important;
-    object-position: center center !important;
-    display: block;
+@media screen and (max-width: 500px) {
+    .parrainage-banner h2 { font-size: 1.4rem; padding: 10px; line-height: 1.4; }
+    .parrainage-banner p { font-size: 1rem; padding: 8px; line-height: 1.3; }
 }
 
-.don-item {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-}
-
-.don-item .btn-don,
-.don-item .btn-sm {
-    margin-top: auto;
-    display: block;
-    width: 100%;
-    text-align: center;
-    margin-bottom: 0;
+@media screen and (max-width: 400px) {
+    .parrainage-banner h2 { font-size: 1.2rem; }
+    .parrainage-banner p { font-size: 0.9rem; }
 }
