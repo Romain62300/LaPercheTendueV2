@@ -161,6 +161,7 @@ $derniers_contacts = $pdo->query("SELECT * FROM contacts ORDER BY date_envoi DES
         <a href="gestion-membres.php">
             <i class="fa fa-users"></i> Membres
         </a>
+        <a href="gestion-messages.php"><i class="fa fa-envelope"></i> Messages</a>
         <a href="gestion-dons.php">
             <i class="fa fa-hand-holding-heart"></i> Dons
         </a>
@@ -180,7 +181,8 @@ $derniers_contacts = $pdo->query("SELECT * FROM contacts ORDER BY date_envoi DES
         <div>
             <span style="color:#888; font-size:0.9rem; margin-right:16px;">
                 <i class="fa fa-user"></i> 
-                <?= ($_SESSION['user_role'] == 'admin') ? 'Administrateur' : 'Membre' ?>
+                <?= ($_SESSION['user_role'] == 1) ? 'Administrateur' : 'Membre' ?>
+            </span>
             <a href="logout.php" class="btn-logout">
                 <i class="fa fa-sign-out-alt"></i> Déconnexion
             </a>
