@@ -5,7 +5,7 @@ $page_description = "Retrouvez les événements solidaires organisés par La Per
 <?php include_once '../includes/header.php'; ?>
 
 <section class="page-section container">
-  <h2 class="section-title">Nos événements</h2>
+  <h2 class="text-center">NOS ÉVÈNEMENTS</h2>
 
   <div class="intro-text">
     <p>

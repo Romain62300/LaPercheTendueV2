@@ -5,7 +5,7 @@ $page_description = "Découvrez l'association La Perche Tendue, ses valeurs, son
 <?php include_once '../includes/header.php'; ?>
 
 <section class="qui-sommes-nous container">
-  <h2 id="presentation" class="section-title" aria-label="Présentation de l'association">Qui sommes-nous ?</h2>
+  <h2 class="text-center">Qui sommes-nous ?</h2>
 
   <div class="intro-text">
     <p>

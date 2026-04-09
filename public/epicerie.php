@@ -5,7 +5,7 @@ $page_description = "Une aide alimentaire accessible à tous, proposée par notr
 <?php include_once '../includes/header.php'; ?>
 
 <section class="page-section container">
-  <h2 class="section-title">Notre épicerie solidaire</h2>
+  <h2 class="text-center">Notre épicerie solidaire</h2>
 
   <div class="intro-text">
     <p>

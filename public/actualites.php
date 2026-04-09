@@ -11,7 +11,7 @@ $actualites = $stmt_actualites->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <section class="actualites container">
-  <h2 class="section-title">Actualités</h2>
+  <h2 class="text-center">Actualités</h2>
   <?php if (!empty($actualites)) : ?>
     <div class="actualites-grid">
       <?php foreach ($actualites as $article) : ?>

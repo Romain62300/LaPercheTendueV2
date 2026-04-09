@@ -8,7 +8,7 @@ $page_description = "Soutenez une personne ou une famille via notre programme de
 
 <div class="parrainage-container">
     <div class="parrainage-banner">
-        <h2>Pourquoi parrainer ?</h2>
+        <h2 class="text-center">Pourquoi parrainer ?</h2>
         <p>Le parrainage permet d’aider les bénéficiaires en leur offrant un soutien moral et matériel.</p>
     </div>
 

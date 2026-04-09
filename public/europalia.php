@@ -5,7 +5,8 @@ $page_description = "Présentation du projet Europalia soutenu par l'association
 <?php include_once '../includes/header.php'; ?>
 
 <section class="page-section container">
-  <h2 class="section-title">Festival Europalia</h2>
+  
+  <h2 class="text-center">Festival Europalia</h2>
 
   <div class="intro-text">
     <p>

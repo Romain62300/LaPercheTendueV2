@@ -5,7 +5,7 @@ $page_description = "Découvrez les différentes actions menées par l'associati
 <?php include_once '../includes/header.php'; ?>
 
 <section class="page-section container">
-  <h2 class="section-title">Nos activités</h2>
+ <h2 class="text-center">Nos activités</h2>
 
   <div class="intro-text">
     <p>
