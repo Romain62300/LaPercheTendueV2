@@ -5,7 +5,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 require_once '../database/database.php';
-
+ 
 // Suppression
 if (isset($_GET['supprimer'])) {
     $id = (int)$_GET['supprimer'];
@@ -13,7 +13,7 @@ if (isset($_GET['supprimer'])) {
     header("Location: liste-articles.php?succes=supprime");
     exit();
 }
-
+ 
 $articles = $pdo->query("SELECT a.*, u.nom as auteur_nom FROM articles a LEFT JOIN utilisateurs u ON a.auteur_id = u.id ORDER BY a.date_publication DESC")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
@@ -49,7 +49,7 @@ $articles = $pdo->query("SELECT a.*, u.nom as auteur_nom FROM articles a LEFT JO
 <body>
 <div class="sidebar">
     <div class="sidebar-logo">
-        <img src="/LaPercheTendue/LaPercheTendueV2/public/assets/images/logo.jpg" alt="Logo">
+        <img src="/LaPercheTendueV2/public/assets/images/logo.jpg" alt="Logo">
         <h2 style="color:white;">Administration</h2>
     </div>
     <div class="sidebar-menu">
@@ -62,7 +62,7 @@ $articles = $pdo->query("SELECT a.*, u.nom as auteur_nom FROM articles a LEFT JO
         <a href="logout.php" style="margin-top:20px;color:#ff6b6b;"><i class="fa fa-sign-out-alt"></i> Se déconnecter</a>
     </div>
 </div>
-
+ 
 <div class="main-content">
     <div class="topbar">
         <h1><i class="fa fa-newspaper"></i> Articles publiés</h1>
@@ -70,13 +70,13 @@ $articles = $pdo->query("SELECT a.*, u.nom as auteur_nom FROM articles a LEFT JO
             <i class="fa fa-plus"></i> Nouvel article
         </a>
     </div>
-
+ 
     <?php if (isset($_GET['succes'])): ?>
         <div style="background:#d4edda;border:1px solid #28a745;color:#155724;border-radius:8px;padding:12px;margin-bottom:20px;">
             ✅ Article supprimé avec succès.
         </div>
     <?php endif; ?>
-
+ 
     <div class="card-section">
         <?php if (empty($articles)): ?>
             <p style="text-align:center;color:#888;padding:40px;">
@@ -99,7 +99,7 @@ $articles = $pdo->query("SELECT a.*, u.nom as auteur_nom FROM articles a LEFT JO
                         <tr>
                             <td>
                                 <?php if ($article['image']): ?>
-                                    <img src="/LaPercheTendue/LaPercheTendueV2/public/assets/images/<?= htmlspecialchars($article['image']) ?>" class="article-img" alt="">
+                                    <img src="/LaPercheTendueV2/public/assets/images/<?= htmlspecialchars($article['image']) ?>" class="article-img" alt="">
                                 <?php else: ?>
                                     <div style="width:60px;height:50px;background:#f0f2f5;border-radius:6px;display:flex;align-items:center;justify-content:center;">
                                         <i class="fa fa-image" style="color:#ccc;"></i>
@@ -111,7 +111,7 @@ $articles = $pdo->query("SELECT a.*, u.nom as auteur_nom FROM articles a LEFT JO
                                 <br>
                                 <small style="color:#888;"><?= htmlspecialchars(substr($article['contenu'], 0, 60)) ?>...</small>
                             </td>
-                            <td><?= htmlspecialchars($article['auteur_nom'] ?? 'Inconnu') ?></td>
+                            <td><?= htmlspecialchars($article['auteur_nom'] ?? 'Admin') ?></td>
                             <td><?= date('d/m/Y', strtotime($article['date_publication'])) ?></td>
                             <td>
                                 <div style="display:flex;gap:8px;">

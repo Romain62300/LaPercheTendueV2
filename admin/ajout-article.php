@@ -5,15 +5,15 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 require_once '../database/database.php';
-
+ 
 $succes = '';
 $erreur = '';
-
+ 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $titre   = htmlspecialchars(trim($_POST['titre'] ?? ''));
     $contenu = htmlspecialchars(trim($_POST['contenu'] ?? ''));
     $image   = '';
-
+ 
     if (empty($titre) || empty($contenu)) {
         $erreur = "Le titre et le contenu sont obligatoires.";
     } else {
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
             }
         }
-
+ 
         if (empty($erreur)) {
             $stmt = $pdo->prepare("INSERT INTO articles (titre, contenu, image, auteur_id) VALUES (:titre, :contenu, :image, :auteur_id)");
             $stmt->execute([
@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 <div class="sidebar">
     <div class="sidebar-logo">
-        <img src="/LaPercheTendue/LaPercheTendueV2/public/assets/images/logo.jpg" alt="Logo">
+        <img src="/LaPercheTendueV2/public/assets/images/logo.jpg" alt="Logo">
         <h2>Administration</h2>
     </div>
     <div class="sidebar-menu">
@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="logout.php" style="margin-top:20px;color:#ff6b6b;"><i class="fa fa-sign-out-alt"></i> Se déconnecter</a>
     </div>
 </div>
-
+ 
 <div class="main-content">
     <div class="topbar">
         <h1><i class="fa fa-plus"></i> Ajouter un article</h1>
@@ -99,39 +99,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <i class="fa fa-list"></i> Voir les articles
         </a>
     </div>
-
+ 
     <?php if ($succes): ?>
         <div class="alert" style="background:#d4edda;border:1px solid #28a745;color:#155724;border-radius:8px;padding:15px;margin-bottom:20px;">
             ✅ <?= $succes ?>
             <a href="liste-articles.php" style="margin-left:10px;color:#155724;font-weight:bold;">Voir les articles →</a>
         </div>
     <?php endif; ?>
-
+ 
     <?php if ($erreur): ?>
         <div class="alert" style="background:#fdecea;border:1px solid #C62828;color:#C62828;border-radius:8px;padding:15px;margin-bottom:20px;">
             ⚠️ <?= $erreur ?>
         </div>
     <?php endif; ?>
-
+ 
     <div class="card-form">
         <form action="" method="POST" enctype="multipart/form-data">
             <div class="mb-4">
                 <label class="form-label"><i class="fa fa-heading"></i> Titre de l'article *</label>
                 <input type="text" name="titre" class="form-control" placeholder="Ex: Journée solidaire du 15 avril" required value="<?= $_POST['titre'] ?? '' ?>">
             </div>
-
+ 
             <div class="mb-4">
                 <label class="form-label"><i class="fa fa-align-left"></i> Contenu de l'article *</label>
                 <textarea name="contenu" class="form-control" rows="10" placeholder="Rédigez votre article ici..." required><?= $_POST['contenu'] ?? '' ?></textarea>
             </div>
-
+ 
             <div class="mb-4">
                 <label class="form-label"><i class="fa fa-image"></i> Image (optionnelle)</label>
                 <input type="file" name="image" class="form-control" accept="image/*" onchange="previewImage(this)">
                 <img id="preview" class="preview-img" src="" alt="Aperçu">
                 <small style="color:#888;">Formats acceptés : jpg, png, gif, webp</small>
             </div>
-
+ 
             <div style="display:flex;gap:12px;">
                 <button type="submit" class="btn-publier">
                     <i class="fa fa-paper-plane"></i> Publier l'article
@@ -143,7 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
     </div>
 </div>
-
+ 
 <script>
 function previewImage(input) {
     const preview = document.getElementById('preview');
@@ -159,3 +159,4 @@ function previewImage(input) {
 </script>
 </body>
 </html>
+ 
