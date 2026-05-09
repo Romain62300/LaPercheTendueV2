@@ -5,13 +5,13 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 require_once '../database/database.php';
-
+ 
 // Statistiques
 $nb_contacts = $pdo->query("SELECT COUNT(*) FROM contacts")->fetchColumn();
 $nb_articles = $pdo->query("SELECT COUNT(*) FROM articles")->fetchColumn();
 $nb_parrainages = $pdo->query("SELECT COUNT(*) FROM parrainages")->fetchColumn();
 $nb_utilisateurs = $pdo->query("SELECT COUNT(*) FROM utilisateurs")->fetchColumn();
-
+ 
 // Derniers messages
 $derniers_contacts = $pdo->query("SELECT * FROM contacts ORDER BY date_envoi DESC LIMIT 5")->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -141,7 +141,7 @@ $derniers_contacts = $pdo->query("SELECT * FROM contacts ORDER BY date_envoi DES
     </style>
 </head>
 <body>
-
+ 
 <!-- Sidebar -->
 <div class="sidebar">
     <div class="sidebar-logo">
@@ -173,7 +173,7 @@ $derniers_contacts = $pdo->query("SELECT * FROM contacts ORDER BY date_envoi DES
         </a>
     </div>
 </div>
-
+ 
 <!-- Contenu principal -->
 <div class="main-content">
     <div class="topbar">
@@ -181,14 +181,14 @@ $derniers_contacts = $pdo->query("SELECT * FROM contacts ORDER BY date_envoi DES
         <div>
             <span style="color:#888; font-size:0.9rem; margin-right:16px;">
                 <i class="fa fa-user"></i> 
-                <?= ($_SESSION['user_role'] == 1) ? 'Administrateur' : 'Membre' ?>
+                <?= ($_SESSION['user_role'] == 'admin') ? 'Administrateur' : 'Membre' ?>
             </span>
             <a href="logout.php" class="btn-logout">
                 <i class="fa fa-sign-out-alt"></i> Déconnexion
             </a>
         </div>
     </div>
-
+ 
     <!-- Statistiques -->
     <div class="row g-3">
         <div class="col-md-3">
@@ -236,7 +236,7 @@ $derniers_contacts = $pdo->query("SELECT * FROM contacts ORDER BY date_envoi DES
             </div>
         </div>
     </div>
-
+ 
     <!-- Derniers messages -->
     <div class="card-section">
         <h2><i class="fa fa-envelope"></i> Derniers messages reçus</h2>
@@ -273,7 +273,7 @@ $derniers_contacts = $pdo->query("SELECT * FROM contacts ORDER BY date_envoi DES
             </table>
         <?php endif; ?>
     </div>
-
+ 
     <!-- Actions rapides -->
     <div class="card-section">
         <h2><i class="fa fa-bolt"></i> Actions rapides</h2>
@@ -293,6 +293,6 @@ $derniers_contacts = $pdo->query("SELECT * FROM contacts ORDER BY date_envoi DES
         </div>
     </div>
 </div>
-
+ 
 </body>
 </html>
