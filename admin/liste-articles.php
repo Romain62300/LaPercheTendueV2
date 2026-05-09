@@ -58,7 +58,7 @@ $articles = $pdo->query("SELECT a.*, u.nom as auteur_nom FROM articles a LEFT JO
         <a href="ajout-article.php"><i class="fa fa-plus"></i> Ajouter un article</a>
         <a href="gestion-membres.php"><i class="fa fa-users"></i> Membres</a>
         <a href="gestion-dons.php"><i class="fa fa-hand-holding-heart"></i> Dons</a>
-        <a href="/LaPercheTendue/LaPercheTendueV2/public/index.php" target="_blank"><i class="fa fa-globe"></i> Voir le site</a>
+        <a href="/LaPercheTendueV2/public/index.php" target="_blank"><i class="fa fa-globe"></i> Voir le site</a>
         <a href="logout.php" style="margin-top:20px;color:#ff6b6b;"><i class="fa fa-sign-out-alt"></i> Se déconnecter</a>
     </div>
 </div>

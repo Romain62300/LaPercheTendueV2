@@ -145,7 +145,7 @@ $derniers_contacts = $pdo->query("SELECT * FROM contacts ORDER BY date_envoi DES
 <!-- Sidebar -->
 <div class="sidebar">
     <div class="sidebar-logo">
-        <img src="/LaPercheTendue/LaPercheTendueV2/public/assets/images/logo.jpg" alt="Logo">
+        <img src="/LaPercheTendueV2/public/assets/images/logo.jpg" alt="Logo">
         <h2>Administration</h2>
     </div>
     <div class="sidebar-menu">
@@ -165,7 +165,7 @@ $derniers_contacts = $pdo->query("SELECT * FROM contacts ORDER BY date_envoi DES
         <a href="gestion-dons.php">
             <i class="fa fa-hand-holding-heart"></i> Dons
         </a>
-        <a href="/LaPercheTendue/LaPercheTendueV2/public/index.php" target="_blank">
+        <a href="/LaPercheTendueV2/public/index.php" target="_blank">
             <i class="fa fa-globe"></i> Voir le site
         </a>
         <a href="logout.php" style="margin-top: 20px; color: #ff6b6b;">

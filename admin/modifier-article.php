@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 <div class="sidebar">
     <div class="sidebar-logo">
-        <img src="/LaPercheTendue/LaPercheTendueV2/public/assets/images/logo.jpg" alt="Logo">
+        <img src="/LaPercheTendueV2/public/assets/images/logo.jpg" alt="Logo">
         <h2 style="color:white;">Administration</h2>
     </div>
     <div class="sidebar-menu">
@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="ajout-article.php"><i class="fa fa-plus"></i> Ajouter un article</a>
         <a href="gestion-membres.php"><i class="fa fa-users"></i> Membres</a>
         <a href="gestion-dons.php"><i class="fa fa-hand-holding-heart"></i> Dons</a>
-        <a href="/LaPercheTendue/LaPercheTendueV2/public/index.php" target="_blank"><i class="fa fa-globe"></i> Voir le site</a>
+        <a href="/LaPercheTendueV2/public/index.php" target="_blank"><i class="fa fa-globe"></i> Voir le site</a>
         <a href="logout.php" style="margin-top:20px;color:#ff6b6b;"><i class="fa fa-sign-out-alt"></i> Se déconnecter</a>
     </div>
 </div>
@@ -145,7 +145,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php if ($article['image']): ?>
                     <div>
                         <p style="color:#888;font-size:0.9rem;">Image actuelle :</p>
-                        <img src="/LaPercheTendue/LaPercheTendueV2/public/assets/images/<?= htmlspecialchars($article['image']) ?>" class="img-actuelle" alt="">
+                        <img src="/LaPercheTendueV2/public/assets/images/<?= htmlspecialchars($article['image']) ?>" class="img-actuelle" alt="">
                     </div>
                 <?php endif; ?>
                 <input type="file" name="image" class="form-control" accept="image/*">

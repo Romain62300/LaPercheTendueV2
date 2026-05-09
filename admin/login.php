@@ -110,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
     <div class="login-card">
         <div class="login-logo">
-            <img src="/LaPercheTendue/LaPercheTendueV2/public/assets/images/logo.jpg" alt="Logo La Perche Tendue">
+            <img src="/LaPercheTendueV2/public/assets/images/logo.jpg" alt="Logo La Perche Tendue">
             <h1>Administration</h1>
             <p>La Perche Tendue</p>
         </div>
@@ -145,7 +145,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </form>
 
         <div class="back-link">
-            <a href="/LaPercheTendue/LaPercheTendueV2/public/index.php">
+            <a href="/LaPercheTendueV2/public/index.php">
                 <i class="fa fa-arrow-left"></i> Retour au site
             </a>
         </div>
