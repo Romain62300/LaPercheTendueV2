@@ -1,5 +1,3 @@
-Usermodel · PHP
-Copier
 
 <?php
  
