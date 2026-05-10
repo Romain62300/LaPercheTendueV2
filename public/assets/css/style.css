@@ -232,16 +232,16 @@ input, textarea {
     width: 100%; height: 100%;
     background: rgba(0, 0, 0, 0.5);
 }
-
 .parrainage-banner h2 {
     position: relative; z-index: 1;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(255, 255, 255, 0.92);
     padding: 12px 20px;
     border-radius: 5px;
     font-size: 24px;
     font-weight: bold;
+    color: #2E4369;
+    text-transform: uppercase;
 }
-
 .parrainage-banner p {
     position: relative; z-index: 1;
     background: rgba(0, 0, 0, 0.6);
