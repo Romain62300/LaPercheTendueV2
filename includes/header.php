@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/LaPercheTendue/LaPercheTendueV2/public/assets/css/style.css">
+    <link rel="stylesheet" href="/LaPercheTendueV2/public/assets/css/style.css">
 </head>
 
 <body>
@@ -28,8 +28,8 @@
 <header>
     <div class="top-header">
         <div class="logo">
-            <a href="/LaPercheTendue/LaPercheTendueV2/public/index.php">
-                <img src="/LaPercheTendue/LaPercheTendueV2/public/assets/images/logo.jpg" alt="Logo La Perche Tendue">
+            <a href="/LaPercheTendueV2/public/index.php">
+                <img src="/LaPercheTendueV2/public/assets/images/logo.jpg" alt="Logo La Perche Tendue">
             </a>
         </div>
         <h1>ASSOCIATION LA PERCHE TENDUE</h1>
@@ -52,14 +52,14 @@
 
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="/LaPercheTendue/LaPercheTendueV2/public/index.php">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/LaPercheTendue/LaPercheTendueV2/public/qui-sommes-nous.php">Qui sommes-nous</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/LaPercheTendue/LaPercheTendueV2/public/epicerie.php">Épicerie</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/LaPercheTendue/LaPercheTendueV2/public/dons.php">Dons</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/LaPercheTendue/LaPercheTendueV2/public/parrainage.php">Parrainage</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/LaPercheTendue/LaPercheTendueV2/public/evenements.php">Événements</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/LaPercheTendue/LaPercheTendueV2/public/actualites.php">Actualités</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/LaPercheTendue/LaPercheTendueV2/public/contact.php">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/LaPercheTendueV2/public/index.php">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/LaPercheTendueV2/public/qui-sommes-nous.php">Qui sommes-nous</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/LaPercheTendueV2/public/epicerie.php">Épicerie</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/LaPercheTendueV2/public/dons.php">Dons</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/LaPercheTendueV2/public/parrainage.php">Parrainage</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/LaPercheTendueV2/public/evenements.php">Événements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/LaPercheTendueV2/public/actualites.php">Actualités</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/LaPercheTendueV2/public/contact.php">Contact</a></li>
                 </ul>
             </div>
         </div>
