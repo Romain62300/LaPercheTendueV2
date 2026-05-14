@@ -1,6 +1,14 @@
 <?php
 $page_title = "Épicerie solidaire - La Perche Tendue";
-$page_description = "Une aide alimentaire accessible à tous, proposée par notre épicerie solidaire à Lens.";
+$page_description = "Une aide alimentaire accessible à tous, proposée par nos épiceries solidaires à Lens et Arras.";
+require_once '../database/database.php';
+
+function getContenu($pdo, $slug) {
+    $stmt = $pdo->prepare("SELECT contenu FROM pages_contenu WHERE page_slug = ?");
+    $stmt->execute([$slug]);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $row ? nl2br(htmlspecialchars($row['contenu'])) : '';
+}
 ?>
 <?php include_once '../includes/header.php'; ?>
 
@@ -8,42 +16,40 @@ $page_description = "Une aide alimentaire accessible à tous, proposée par notr
   <h2 class="text-center">Notre épicerie solidaire</h2>
 
   <div class="intro-text">
-    <p>
-      L'épicerie solidaire de La Perche Tendue propose des produits alimentaires et d'hygiène à prix réduits 
-      aux personnes en situation de précarité. Un espace chaleureux où chacun est accueilli avec respect et dignité.
-    </p>
+    <p><?= getContenu($pdo, 'epicerie-intro') ?></p>
   </div>
 
   <div class="qui-grid">
-
     <div class="qui-item">
       <img src="assets/images/epicerie.jpg" alt="Épicerie solidaire">
       <h3>Nos produits</h3>
-      <p>
-        Fruits et légumes, produits secs, conserves, produits laitiers, 
-        hygiène et entretien — une large gamme accessible à tous.
-      </p>
+      <p><?= getContenu($pdo, 'epicerie-produits') ?></p>
     </div>
 
     <div class="qui-item">
       <img src="assets/images/equipe.jpg" alt="Conditions d'accès">
       <h3>Qui peut en bénéficier ?</h3>
-      <p>
-        L'épicerie est ouverte à toute personne orientée par un travailleur social 
-        ou sur présentation d'un justificatif de ressources. Renseignez-vous auprès de nous.
-      </p>
+      <p><?= getContenu($pdo, 'epicerie-acces') ?></p>
     </div>
 
     <div class="qui-item">
-      <img src="assets/images/engagement.jpg" alt="Horaires">
-      <h3>Horaires d'ouverture</h3>
+      <img src="assets/images/engagement.jpg" alt="Nos épiceries">
+      <h3>Nos épiceries</h3>
       <p>
-        Lundi au vendredi : 8h30 - 12h30 / 13h30 - 17h00<br><br>
-        24 avenue Raoul Briquet, appartement 3<br>
-        62300 Lens
+        <strong>Épicerie de Lens</strong><br>
+        56 rue Casimir Beugnet<br>
+        62300 Lens<br>
+        📞 <a href="tel:0668492507">06 68 49 25 07</a><br>
+        <em>Ouvert du mardi au samedi de 13h à 18h</em>
+      </p>
+      <p style="margin-top: 15px;">
+        <strong>Épicerie d'Arras</strong><br>
+        122 rue du Commandant Dumetz<br>
+        62000 Arras<br>
+        📞 <a href="tel:0660238469">06 60 23 84 69</a><br>
+        <em>Ouvert du mardi au samedi de 12h à 17h</em>
       </p>
     </div>
-
   </div>
 
   <div style="text-align:center; margin-top: 40px;">
