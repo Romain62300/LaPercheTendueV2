@@ -37,6 +37,36 @@ $page_description = "Contactez l'association La Perche Tendue via notre formulai
   <img src="assets/images/contact-epicerie.jpg" alt="Photo de l'équipe à l'épicerie" class="image-contact">
 </section>
 
+<!-- Coordonnées des épiceries -->
+<section class="page-section container">
+  <h2 class="text-center" style="margin-bottom: 30px;">NOS ÉPICERIES</h2>
+  <div class="row g-4 justify-content-center">
+
+    <div class="col-md-5">
+      <div class="card h-100 shadow-sm border-0 p-4">
+        <h3 class="mb-3" style="color:#c0392b;">📍 Épicerie de Lens</h3>
+        <p><strong>Adresse :</strong><br>56 rue Casimir Beugnet<br>62300 Lens</p>
+        <p><strong>Téléphone :</strong><br>
+          <a href="tel:0668492507">06 68 49 25 07</a>
+        </p>
+        <p><strong>Horaires :</strong><br>Du mardi au samedi<br>13h – 18h</p>
+      </div>
+    </div>
+
+    <div class="col-md-5">
+      <div class="card h-100 shadow-sm border-0 p-4">
+        <h3 class="mb-3" style="color:#c0392b;">📍 Épicerie d'Arras</h3>
+        <p><strong>Adresse :</strong><br>122 rue du Commandant Dumetz<br>62000 Arras</p>
+        <p><strong>Téléphone :</strong><br>
+          <a href="tel:0660238469">06 60 23 84 69</a>
+        </p>
+        <p><strong>Horaires :</strong><br>Du mardi au samedi<br>12h – 17h</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- Formulaire dans boîte grise -->
 <section class="form-style-boite">
   <h2 class="form-title">Nous Contacter :</h2>

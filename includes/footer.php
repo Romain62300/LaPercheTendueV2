@@ -1,37 +1,36 @@
-</div>
-
 <footer class="footer">
   <div class="footer-content">
 
     <div class="footer-section">
-      <h3>Adresse</h3>
-      <p>Association PERCHE TENDUE</p>
-      <p>Épicerie Solidaire de Lens</p>
-      <p>06 17 22 86 55</p>
-
-      <a href="https://www.google.com/maps?q=50.4371,2.8265"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="btn-google-maps">
-        Voir l’adresse sur Google Maps
+      <h3>Épicerie de Lens</h3>
+      <p>56 rue Casimir Beugnet</p>
+      <p>62300 Lens</p>
+      <p><a href="tel:0668492507" style="color:inherit;">06 68 49 25 07</a></p>
+      <p>Mardi – Samedi : 13h – 18h</p>
+      <a href="https://www.google.com/maps?q=56+rue+Casimir+Beugnet+62300+Lens"
+         target="_blank" rel="noopener noreferrer" class="btn-google-maps">
+        Voir sur Google Maps
       </a>
     </div>
 
     <div class="footer-section">
-      <h3>Horaires</h3>
-      <p>Lundi : 8h30-12h30 / 13h30-17h00</p>
-      <p>Mardi : 8h30-12h30 / 13h30-17h00</p>
-      <p>Mercredi : 8h30-12h30 / 13h30-17h00</p>
-      <p>Jeudi : 8h30-12h30 / 13h30-17h00</p>
-      <p>Vendredi : 8h30-12h30 / 13h30-17h00</p>
+      <h3>Épicerie d'Arras</h3>
+      <p>122 rue du Commandant Dumetz</p>
+      <p>62000 Arras</p>
+      <p><a href="tel:0660238469" style="color:inherit;">06 60 23 84 69</a></p>
+      <p>Mardi – Samedi : 12h – 17h</p>
+      <a href="https://www.google.com/maps?q=122+rue+du+Commandant+Dumetz+62000+Arras"
+         target="_blank" rel="noopener noreferrer" class="btn-google-maps">
+        Voir sur Google Maps
+      </a>
     </div>
 
   </div>
 
   <div class="footer-bottom-container">
     <p>
-      Copyright 2025 Ville de Lens |
-      <a href="/LaPercheTendue/LaPercheTendueV2/public/mentions-legales.php" class="footer-link">
+      Copyright 2025 Association La Perche Tendue |
+      <a href="/LaPercheTendueV2/public/mentions-legales.php" class="footer-link">
         Mentions légales
       </a> |
       <a href="#" id="gestionCookies" class="footer-link">
@@ -41,15 +40,15 @@
   </div>
 </footer>
 
-<script src="/LaPercheTendue/LaPercheTendueV2/public/assets/js/menu.js"></script>
-<script src="/LaPercheTendue/LaPercheTendueV2/public/assets/js/tarteaucitron/tarteaucitron.js"></script>
-<script src="/LaPercheTendue/LaPercheTendueV2/public/assets/js/tarteaucitron/tarteaucitron.fr.js"></script>
+<script src="/LaPercheTendueV2/public/assets/js/menu.js"></script>
+<script src="/LaPercheTendueV2/public/assets/js/tarteaucitron/tarteaucitron.js"></script>
+<script src="/LaPercheTendueV2/public/assets/js/tarteaucitron/tarteaucitron.fr.js"></script>
 
 <script>
 window.addEventListener('load', function () {
   if (typeof tarteaucitron !== 'undefined') {
     tarteaucitron.init({
-      "privacyUrl": "/LaPercheTendue/LaPercheTendueV2/public/mentions-legales.php",
+      "privacyUrl": "/LaPercheTendueV2/public/mentions-legales.php",
       "hashtag": "#tarteaucitron",
       "cookieName": "tarteaucitron",
       "orientation": "bottom",

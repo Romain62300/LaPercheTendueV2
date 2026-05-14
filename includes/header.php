@@ -57,7 +57,7 @@
                     <li class="nav-item"><a class="nav-link" href="/LaPercheTendueV2/public/epicerie.php">Épicerie</a></li>
                     <li class="nav-item"><a class="nav-link" href="/LaPercheTendueV2/public/dons.php">Dons</a></li>
                     <li class="nav-item"><a class="nav-link" href="/LaPercheTendueV2/public/parrainage.php">Parrainage</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/LaPercheTendueV2/public/evenements.php">Événements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/LaPercheTendueV2/public/evenements.php">International</a></li>
                     <li class="nav-item"><a class="nav-link" href="/LaPercheTendueV2/public/actualites.php">Actualités</a></li>
                     <li class="nav-item"><a class="nav-link" href="/LaPercheTendueV2/public/contact.php">Contact</a></li>
                 </ul>
