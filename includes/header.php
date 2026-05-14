@@ -17,14 +17,6 @@
 
 <body>
 
-<!-- Bannière cookie -->
-<div class="cookie-banner" id="cookieBanner">
-  <p>
-    Ce site utilise des cookies.
-    <button class="btn-cookie" onclick="acceptCookies()">OK</button>
-  </p>
-</div>
-
 <header>
     <div class="top-header">
         <div class="logo">
@@ -68,18 +60,5 @@
 
 <div class="wrapper">
 
-<!-- Bootstrap JS avant </body> comme recommandé -->
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-function acceptCookies() {
-    document.getElementById('cookieBanner').style.display = 'none';
-    localStorage.setItem('cookiesAccepted', 'true');
-}
-
-window.addEventListener('load', function () {
-    if (!localStorage.getItem('cookiesAccepted')) {
-        document.getElementById('cookieBanner').style.display = 'flex';
-    }
-});
-</script>
