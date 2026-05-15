@@ -58,8 +58,8 @@ $page_description = "Les actions internationales de solidarité menées par La P
       Don, bénévolat ou partenariat — votre soutien nous permet d'agir 
       toujours plus loin pour ceux qui en ont besoin.
     </p>
-    <a href="faire-un-don.php" class="btn btn-primary me-2">Faire un don</a>
-    <a href="contact.php" class="btn btn-sm">Nous contacter</a>
+   <a href="faire-un-don.php" class="btn-don" style="margin-right: 10px;">Faire un don</a>
+<a href="contact.php" class="btn-don">Nous contacter</a>
   </div>
 
 </section>
