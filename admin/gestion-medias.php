@@ -123,6 +123,8 @@ $pages_sections = [
         'culture' => 'Culture et solidarité',
     ],
     'contact' => ['hero' => 'Photo principale'],
+    'festival' => ['intro' => 'Photo principale'],
+    'parade' => ['intro' => 'Photo principale'],
     'dons' => [
         'carte' => 'Don par carte',
         'virement' => 'Don par virement',
