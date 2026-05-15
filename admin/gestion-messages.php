@@ -3,8 +3,10 @@ session_start();
 if (!isset($_SESSION['user_id'])) { header("Location: login.php"); exit(); }
 require_once '../database/database.php';
 
-if (isset($_GET['supprimer'])) {
-    $pdo->prepare("DELETE FROM contacts WHERE id = ?")->execute([(int)$_GET['supprimer']]);
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['supprimer_id'])) {
+    require_once '../includes/csrf.php';
+    csrf_verify();
+    $pdo->prepare("DELETE FROM contacts WHERE id = ?")->execute([(int)$_POST['supprimer_id']]);
     header("Location: gestion-messages.php?succes=1");
     exit();
 }
@@ -80,7 +82,10 @@ $messages = $pdo->query("SELECT * FROM contacts ORDER BY date_envoi DESC")->fetc
                     <td class="msg-preview" title="<?= htmlspecialchars($m['message']) ?>"><?= htmlspecialchars($m['message']) ?></td>
                     <td><?= date('d/m/Y H:i', strtotime($m['date_envoi'])) ?></td>
                     <td>
-                        <button class="btn-delete" onclick="if(confirm('Supprimer ce message ?')) window.location='gestion-messages.php?supprimer=<?= $m['id'] ?>'">
+                        <form method="POST" style="display:inline;" onsubmit="return confirm('Supprimer ce message ?')">
+                        <?php require_once '../includes/csrf.php'; echo csrf_token_field(); ?>
+                        <input type="hidden" name="supprimer_id" value="<?= $m['id'] ?>">
+                        <button type="submit" class="btn-delete">
                             <i class="fa fa-trash"></i>
                         </button>
                     </td>

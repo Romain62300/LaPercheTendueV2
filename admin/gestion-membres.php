@@ -2,9 +2,11 @@
 session_start();
 if (!isset($_SESSION['user_id'])) { header("Location: login.php"); exit(); }
 require_once '../database/database.php';
+require_once '../includes/csrf.php';
 
-if (isset($_GET['supprimer'])) {
-    $id = (int)$_GET['supprimer'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['supprimer_id'])) {
+    csrf_verify();
+    $id = (int)$_POST['supprimer_id'];
     if ($id !== (int)$_SESSION['user_id']) {
         $pdo->prepare("DELETE FROM utilisateurs WHERE id = ?")->execute([$id]);
     }
@@ -17,6 +19,7 @@ $membres = $pdo->query("SELECT * FROM utilisateurs ORDER BY date_creation DESC")
 $succes_ajout = '';
 $erreur_ajout = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    csrf_verify();
     $nom      = htmlspecialchars(trim($_POST['nom'] ?? ''));
     $email    = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
     $mdp      = $_POST['mot_de_passe'] ?? '';
@@ -89,7 +92,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h1><i class="fa fa-users"></i> Gestion des membres</h1>
     </div>
 
-    <!-- Formulaire ajout membre -->
     <div class="card-section">
         <h2><i class="fa fa-user-plus"></i> Ajouter un membre</h2>
         <?php if ($succes_ajout): ?>
@@ -99,6 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div style="background:#fdecea;border:1px solid #C62828;color:#C62828;border-radius:8px;padding:12px;margin-bottom:16px;">⚠️ <?= $erreur_ajout ?></div>
         <?php endif; ?>
         <form method="POST">
+            <?= csrf_token_field() ?>
             <div class="row g-3">
                 <div class="col-md-3">
                     <label class="form-label fw-bold">Nom</label>
@@ -126,7 +129,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
     </div>
 
-    <!-- Liste membres -->
     <div class="card-section">
         <h2><i class="fa fa-list"></i> Liste des membres (<?= count($membres) ?>)</h2>
         <?php if (isset($_GET['succes'])): ?>
@@ -145,9 +147,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <td><?= date('d/m/Y', strtotime($m['date_creation'])) ?></td>
                     <td>
                         <?php if ($m['id'] !== (int)$_SESSION['user_id']): ?>
-                        <button class="btn-delete" onclick="if(confirm('Supprimer ce membre ?')) window.location='gestion-membres.php?supprimer=<?= $m['id'] ?>'">
-                            <i class="fa fa-trash"></i>
-                        </button>
+                        <form method="POST" style="display:inline;" onsubmit="return confirm('Supprimer ce membre ?')">
+                            <?= csrf_token_field() ?>
+                            <input type="hidden" name="supprimer_id" value="<?= $m['id'] ?>">
+                            <button type="submit" class="btn-delete"><i class="fa fa-trash"></i></button>
+                        </form>
                         <?php else: ?>
                         <span style="color:#aaa;font-size:0.85rem;">Vous</span>
                         <?php endif; ?>

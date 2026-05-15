@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once '../includes/csrf.php';
 require_once '../database/database.php';
 require_once '../src/Controller/AdminController.php';
 
@@ -139,7 +140,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                        placeholder="••••••••" required>
             </div>
 
-            <button type="submit" class="btn-login">
+            <?= csrf_token_field() ?>
+                <button type="submit" class="btn-login">
                 <i class="fa fa-sign-in-alt"></i> Se connecter
             </button>
         </form>

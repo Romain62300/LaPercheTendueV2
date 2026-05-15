@@ -7,8 +7,11 @@ if (!isset($_SESSION['user_id'])) {
 require_once '../database/database.php';
  
 // Suppression
-if (isset($_GET['supprimer'])) {
-    $id = (int)$_GET['supprimer'];
+// Suppression via POST sécurisée
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['supprimer_id'])) {
+    require_once '../includes/csrf.php';
+    csrf_verify();
+    $id = (int)$_POST['supprimer_id'];
     $pdo->prepare("DELETE FROM articles WHERE id = ?")->execute([$id]);
     header("Location: liste-articles.php?succes=supprime");
     exit();
@@ -118,7 +121,10 @@ $articles = $pdo->query("SELECT a.*, u.nom as auteur_nom FROM articles a LEFT JO
                                     <a href="modifier-article.php?id=<?= $article['id'] ?>" class="btn-edit">
                                         <i class="fa fa-edit"></i> Modifier
                                     </a>
-                                    <button class="btn-delete" onclick="if(confirm('Supprimer cet article ?')) window.location='liste-articles.php?supprimer=<?= $article['id'] ?>'">
+                                    <form method="POST" style="display:inline;" onsubmit="return confirm('Supprimer cet article ?')">
+                                        <?php require_once '../includes/csrf.php'; echo csrf_token_field(); ?>
+                                        <input type="hidden" name="supprimer_id" value="<?= $article['id'] ?>">
+                                        <button type="submit" class="btn-delete">
                                         <i class="fa fa-trash"></i> Supprimer
                                     </button>
                                 </div>
