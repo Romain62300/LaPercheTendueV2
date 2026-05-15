@@ -4,36 +4,31 @@ $page_description = "Inscrivez-vous pour devenir parrain ou bénéficiaire de no
 ?>
 <?php
 include '../includes/header.php';
-require '../database/database.php';
 
-// Récupération des valeurs en cas d'erreur
-$nom = isset($_GET['nom']) ? htmlspecialchars($_GET['nom']) : '';
-$email = isset($_GET['email']) ? htmlspecialchars($_GET['email']) : '';
+$nom     = isset($_GET['nom'])     ? htmlspecialchars($_GET['nom'])     : '';
+$email   = isset($_GET['email'])   ? htmlspecialchars($_GET['email'])   : '';
 $message = isset($_GET['message']) ? htmlspecialchars($_GET['message']) : '';
-$error = isset($_GET['error']) ? htmlspecialchars($_GET['error']) : '';
+$error   = isset($_GET['error'])   ? htmlspecialchars($_GET['error'])   : '';
 $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : '';
+
+require_once '../includes/csrf.php';
 ?>
 
 <div class="container mt-5">
     <h2 class="text-center">Inscription au Parrainage</h2>
     <p class="text-center">Devenez parrain et soutenez une personne en difficulté.</p>
 
-    <!-- Affichage des erreurs -->
     <?php if (!empty($error)): ?>
-        <div class="alert alert-danger">
-            <strong>Erreur :</strong> <?php echo $error; ?>
-        </div>
+        <div class="alert alert-danger"><strong>Erreur :</strong> <?= $error ?></div>
     <?php endif; ?>
 
-    <!-- Affichage du message de succès -->
     <?php if (!empty($success)): ?>
-        <div class="alert alert-success">
-            <strong>Succès :</strong> <?php echo $success; ?>
-        </div>
+        <div class="alert alert-success"><strong>Succès :</strong> <?= $success ?></div>
     <?php endif; ?>
 
-    <form action="/la-perche-tendue/src/Controller/ParrainageController.php" method="POST">
-        <input type="text" name="honeypot" style="display:none;" aria-hidden="true" title="Champ anti-spam caché" tabindex="-1">
+    <form action="/LaPercheTendueV2/src/Controller/ParrainageController.php" method="POST">
+        <?= csrf_token_field() ?>
+        <input type="text" name="honeypot" style="display:none;" aria-hidden="true" tabindex="-1">
 
         <div class="form-group">
             <label for="nom">Nom :</label>
