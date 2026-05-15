@@ -163,6 +163,7 @@ $derniers_contacts = $pdo->query("SELECT * FROM contacts ORDER BY date_envoi DES
         </a>
         <a href="gestion-messages.php"><i class="fa fa-envelope"></i> Messages</a>
         <a href="gestion-pages.php"><i class="fa fa-file-alt"></i> Pages du site</a>
+        <a href="gestion-medias.php"><i class="fa fa-images"></i> Médias & Photos</a>
         <a href="gestion-photos.php"><i class="fa fa-images"></i> Photos</a>
         <a href="gestion-dons.php">
             <i class="fa fa-hand-holding-heart"></i> Dons
