@@ -1,29 +1,23 @@
 <?php
 session_start();
 require_once '../includes/auth.php';
+require_once '../includes/csrf.php';
 require_admin();
 require_once '../database/database.php';
 
 $id = (int)($_GET['id'] ?? 0);
-if (!$id) {
-    header("Location: liste-articles.php");
-    exit();
-}
+if (!$id) { header("Location: liste-articles.php"); exit(); }
 
-// Récupérer l'article
 $article = $pdo->prepare("SELECT * FROM articles WHERE id = ?");
 $article->execute([$id]);
 $article = $article->fetch(PDO::FETCH_ASSOC);
-
-if (!$article) {
-    header("Location: liste-articles.php");
-    exit();
-}
+if (!$article) { header("Location: liste-articles.php"); exit(); }
 
 $succes = '';
 $erreur = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    csrf_verify();
     $titre   = htmlspecialchars(trim($_POST['titre'] ?? ''));
     $contenu = htmlspecialchars(trim($_POST['contenu'] ?? ''));
     $image   = $article['image'];
@@ -44,15 +38,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
             }
         }
-
         if (empty($erreur)) {
             $stmt = $pdo->prepare("UPDATE articles SET titre = :titre, contenu = :contenu, image = :image WHERE id = :id");
-            $stmt->execute([
-                ':titre'   => $titre,
-                ':contenu' => $contenu,
-                ':image'   => $image,
-                ':id'      => $id
-            ]);
+            $stmt->execute([':titre' => $titre, ':contenu' => $contenu, ':image' => $image, ':id' => $id]);
             $succes = "Article modifié avec succès !";
             $article['titre']   = $titre;
             $article['contenu'] = $contenu;
@@ -115,29 +103,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <?php if ($succes): ?>
-        <div style="background:#d4edda;border:1px solid #28a745;color:#155724;border-radius:8px;padding:15px;margin-bottom:20px;">
-            ✅ <?= $succes ?>
-        </div>
+        <div style="background:#d4edda;border:1px solid #28a745;color:#155724;border-radius:8px;padding:15px;margin-bottom:20px;">✅ <?= $succes ?></div>
     <?php endif; ?>
-
     <?php if ($erreur): ?>
-        <div style="background:#fdecea;border:1px solid #C62828;color:#C62828;border-radius:8px;padding:15px;margin-bottom:20px;">
-            ⚠️ <?= $erreur ?>
-        </div>
+        <div style="background:#fdecea;border:1px solid #C62828;color:#C62828;border-radius:8px;padding:15px;margin-bottom:20px;">⚠️ <?= $erreur ?></div>
     <?php endif; ?>
 
     <div class="card-form">
         <form action="" method="POST" enctype="multipart/form-data">
+            <?= csrf_token_field() ?>
             <div class="mb-4">
                 <label class="form-label"><i class="fa fa-heading"></i> Titre *</label>
                 <input type="text" name="titre" class="form-control" required value="<?= htmlspecialchars($article['titre']) ?>">
             </div>
-
             <div class="mb-4">
                 <label class="form-label"><i class="fa fa-align-left"></i> Contenu *</label>
                 <textarea name="contenu" class="form-control" rows="10" required><?= htmlspecialchars($article['contenu']) ?></textarea>
             </div>
-
             <div class="mb-4">
                 <label class="form-label"><i class="fa fa-image"></i> Image</label>
                 <?php if ($article['image']): ?>
@@ -149,14 +131,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="file" name="image" class="form-control" accept="image/*">
                 <small style="color:#888;">Laissez vide pour conserver l'image actuelle</small>
             </div>
-
             <div style="display:flex;gap:12px;">
-                <button type="submit" class="btn-sauvegarder">
-                    <i class="fa fa-save"></i> Sauvegarder
-                </button>
-                <a href="liste-articles.php" class="btn" style="border:1px solid #ddd;border-radius:8px;padding:12px 20px;color:#666;">
-                    Annuler
-                </a>
+                <button type="submit" class="btn-sauvegarder"><i class="fa fa-save"></i> Sauvegarder</button>
+                <a href="liste-articles.php" class="btn" style="border:1px solid #ddd;border-radius:8px;padding:12px 20px;color:#666;">Annuler</a>
             </div>
         </form>
     </div>

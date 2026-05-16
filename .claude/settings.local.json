@@ -3,7 +3,8 @@
     "allow": [
       "Bash(php -r \"echo php_ini_loaded_file\\(\\);\")",
       "Bash(php -r \"echo ini_get\\('session.use_strict_mode'\\);\")",
-      "Bash(php *)"
+      "Bash(php *)",
+      "Bash(git *)"
     ]
   }
 }

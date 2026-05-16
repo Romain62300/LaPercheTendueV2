@@ -6,7 +6,8 @@ require_once __DIR__ . '/../../includes/csrf.php';
 
 $parrainageModel = new ParrainageModel($pdo);
 
-function logError($message) {
+function logError($message)
+{
     $logDir = __DIR__ . '/../../logs';
     if (!is_dir($logDir)) mkdir($logDir, 0755, true);
     file_put_contents($logDir . '/errors.log', '[' . date('Y-m-d H:i:s') . '] ' . $message . "\n", FILE_APPEND);
