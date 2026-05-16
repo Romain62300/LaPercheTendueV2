@@ -1,9 +1,8 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
-}
+require_once '../includes/auth.php';
+require_once '../includes/csrf.php';
+require_admin();
 require_once '../database/database.php';
 
 $message = '';
@@ -14,6 +13,7 @@ $upload_dir = '../public/assets/images/';
 // UPLOAD nouvelle photo
 // =====================
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['nouvelle_photo'])) {
+    csrf_verify();
     $fichier = $_FILES['nouvelle_photo'];
     $titre = trim($_POST['titre'] ?? '');
 
@@ -43,6 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['nouvelle_photo'])) {
 // SUPPRIMER une photo
 // =====================
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['supprimer_photo'])) {
+    csrf_verify();
     $nom = basename($_POST['supprimer_photo']);
     // Ne pas supprimer les photos système
     $protegees = ['logo.jpg', 'contact-epicerie.jpg', 'google-maps.png'];
@@ -63,6 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['supprimer_photo'])) {
 // ASSIGNER photo à une section
 // =====================
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['assigner'])) {
+    csrf_verify();
     $page_slug = $_POST['page_slug'];
     $section_slug = $_POST['section_slug'];
     $nom_fichier = $_POST['nom_fichier'];
@@ -219,6 +221,7 @@ $page_active = $_GET['page'] ?? array_key_first($pages_sections);
     <div class="card-section">
         <h3 style="color:#2E4369;margin-bottom:16px;"><i class="fa fa-upload"></i> Ajouter une nouvelle photo</h3>
         <form method="POST" enctype="multipart/form-data">
+            <?= csrf_token_field() ?>
             <div class="upload-zone">
                 <i class="fa fa-cloud-upload-alt fa-2x" style="color:#2E4369;margin-bottom:10px;"></i>
                 <p style="margin:0;color:#666;">Choisissez une photo à ajouter à la bibliothèque</p>
@@ -246,7 +249,8 @@ $page_active = $_GET['page'] ?? array_key_first($pages_sections);
                     <?php $protegees = ['logo.jpg','contact-epicerie.jpg','google-maps.png']; ?>
                     <?php if (!in_array($photo, $protegees)): ?>
                     <form method="POST" style="display:inline;" onsubmit="return confirm('Supprimer <?= htmlspecialchars($photo) ?> ?')">
-                        <input type="hidden" name="supprimer_photo" value="<?= htmlspecialchars($photo) ?>">
+                        <?= csrf_token_field() ?>
+        <input type="hidden" name="supprimer_photo" value="<?= htmlspecialchars($photo) ?>">
                         <button type="submit" class="delete-btn" title="Supprimer">✕</button>
                     </form>
                     <?php endif; ?>
@@ -288,7 +292,8 @@ $page_active = $_GET['page'] ?? array_key_first($pages_sections);
                         </div>
                     </div>
                     <form method="POST">
-                        <input type="hidden" name="assigner" value="1">
+                        <?= csrf_token_field() ?>
+        <input type="hidden" name="assigner" value="1">
                         <input type="hidden" name="page_slug" value="<?= htmlspecialchars($page_active) ?>">
                         <input type="hidden" name="section_slug" value="<?= htmlspecialchars($section) ?>">
                         <div style="margin-bottom:10px;">

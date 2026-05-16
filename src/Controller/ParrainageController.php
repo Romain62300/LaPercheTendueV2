@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once __DIR__ . '/../../database/database.php';
 require_once __DIR__ . '/../Model/ParrainageModel.php';
 require_once __DIR__ . '/../../includes/csrf.php';
@@ -11,11 +12,10 @@ function logError($message) {
     file_put_contents($logDir . '/errors.log', '[' . date('Y-m-d H:i:s') . '] ' . $message . "\n", FILE_APPEND);
 }
 
-// Ajout d'un parrainage (POST)
+// Ajout d'un parrainage (POST) - accessible publiquement
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['delete_id'])) {
     csrf_verify();
 
-    // Anti-spam honeypot
     if (!empty($_POST['honeypot'])) {
         header('Location: /LaPercheTendueV2/public/inscription-parrainage.php?error=Tentative+de+spam+détectée.');
         exit;
@@ -55,8 +55,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['delete_id'])) {
     exit;
 }
 
-// Suppression d'un parrainage (POST sécurisé)
+// Suppression - admin uniquement
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
+    // Vérification session admin obligatoire
+    if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] !== 'admin') {
+        http_response_code(403);
+        die("Accès non autorisé.");
+    }
     csrf_verify();
     $id = (int)$_POST['delete_id'];
     if ($parrainageModel->deleteParrainage($id)) {

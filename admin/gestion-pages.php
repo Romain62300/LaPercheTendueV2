@@ -1,9 +1,8 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
-}
+require_once '../includes/auth.php';
+require_once '../includes/csrf.php';
+require_admin();
 require_once '../database/database.php';
 
 $message = '';
@@ -11,6 +10,7 @@ $erreur = '';
 
 // Sauvegarde du contenu
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['sauvegarder'])) {
+    csrf_verify();
     foreach ($_POST['contenu'] as $slug => $texte) {
         $stmt = $pdo->prepare("UPDATE pages_contenu SET contenu = ? WHERE page_slug = ?");
         $stmt->execute([trim($texte), $slug]);
@@ -187,6 +187,7 @@ $page_active = $_GET['page'] ?? array_key_first($pages);
 
         <!-- Formulaire de modification -->
         <form method="POST">
+            <?= csrf_token_field() ?>
             <?php if (isset($pages[$page_active])): ?>
                 <?php foreach ($pages[$page_active] as $slug => $bloc): ?>
                     <div class="bloc-card">

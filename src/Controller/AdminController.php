@@ -18,6 +18,8 @@ class AdminController {
         }
 
         if (password_verify($mot_de_passe, $user['mot_de_passe'])) {
+            // Régénérer l'ID de session pour éviter la fixation de session
+            session_regenerate_id(true);
             $_SESSION['user_id']   = $user['id'];
             $_SESSION['user_nom']  = $user['nom'];
             $_SESSION['user_role'] = $user['role'];

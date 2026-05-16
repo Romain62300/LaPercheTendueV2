@@ -1,6 +1,7 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id'])) { header("Location: login.php"); exit(); }
+require_once '../includes/auth.php';
+require_admin();
 require_once '../database/database.php';
 
 $dons = $pdo->query("SELECT d.*, u.nom as donateur FROM dons d LEFT JOIN utilisateurs u ON d.utilisateur_id = u.id ORDER BY d.date_don DESC")->fetchAll(PDO::FETCH_ASSOC);
