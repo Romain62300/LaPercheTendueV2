@@ -84,11 +84,12 @@ $messages = $pdo->query("SELECT * FROM contacts ORDER BY date_envoi DESC")->fetc
                     <td><?= date('d/m/Y H:i', strtotime($m['date_envoi'])) ?></td>
                     <td>
                         <form method="POST" style="display:inline;" onsubmit="return confirm('Supprimer ce message ?')">
-                        <?php require_once '../includes/csrf.php'; echo csrf_token_field(); ?>
-                        <input type="hidden" name="supprimer_id" value="<?= $m['id'] ?>">
-                        <button type="submit" class="btn-delete">
-                            <i class="fa fa-trash"></i>
-                        </button>
+                            <?php require_once '../includes/csrf.php'; echo csrf_token_field(); ?>
+                            <input type="hidden" name="supprimer_id" value="<?= $m['id'] ?>">
+                            <button type="submit" class="btn-delete">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </form>
                     </td>
                 </tr>
                 <?php endforeach; ?>

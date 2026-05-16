@@ -1,11 +1,9 @@
- · PHP
-Copier
-
 <?php
 session_start();
- 
+require_once __DIR__ . '/../../includes/auth.php';
+
 // Vérification session admin obligatoire
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
     http_response_code(403);
     die("Accès non autorisé.");
 }

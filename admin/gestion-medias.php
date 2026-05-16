@@ -21,9 +21,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['nouvelle_photo'])) {
         $erreur = "Erreur lors de l'upload.";
     } else {
         $ext = strtolower(pathinfo($fichier['name'], PATHINFO_EXTENSION));
-        $autorise = ['jpg', 'jpeg', 'png', 'webp'];
-        if (!in_array($ext, $autorise)) {
+        $autorise  = ['jpg', 'jpeg', 'png', 'webp'];
+        $mimes_ok  = ['image/jpeg', 'image/png', 'image/webp'];
+        $finfo     = finfo_open(FILEINFO_MIME_TYPE);
+        $mime      = finfo_file($finfo, $fichier['tmp_name']);
+        finfo_close($finfo);
+        if (!in_array($ext, $autorise) || !in_array($mime, $mimes_ok)) {
             $erreur = "Format non autorisé. Utilisez JPG, PNG ou WEBP.";
+        } elseif (!getimagesize($fichier['tmp_name'])) {
+            $erreur = "Le fichier uploadé n'est pas une image valide.";
         } elseif ($fichier['size'] > 5 * 1024 * 1024) {
             $erreur = "Fichier trop lourd (max 5 Mo).";
         } else {

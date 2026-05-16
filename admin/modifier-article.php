@@ -28,8 +28,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($_FILES['image']['name'])) {
             $ext     = strtolower(pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION));
             $exts_ok = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
-            if (!in_array($ext, $exts_ok)) {
+            $mimes_ok = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+            $finfo   = finfo_open(FILEINFO_MIME_TYPE);
+            $mime    = finfo_file($finfo, $_FILES['image']['tmp_name']);
+            finfo_close($finfo);
+            if (!in_array($ext, $exts_ok) || !in_array($mime, $mimes_ok)) {
                 $erreur = "Format d'image non autorisé.";
+            } elseif (!getimagesize($_FILES['image']['tmp_name'])) {
+                $erreur = "Le fichier uploadé n'est pas une image valide.";
             } else {
                 $nom_fichier = uniqid('article_') . '.' . $ext;
                 $destination = '../public/assets/images/' . $nom_fichier;

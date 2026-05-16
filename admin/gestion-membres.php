@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nom      = htmlspecialchars(trim($_POST['nom'] ?? ''));
     $email    = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
     $mdp      = $_POST['mot_de_passe'] ?? '';
-    $role     = $_POST['role'] ?? 'user';
+    $role     = in_array($_POST['role'] ?? '', ['user', 'admin']) ? $_POST['role'] : 'user';
     if (empty($nom) || empty($email) || empty($mdp)) {
         $erreur_ajout = "Tous les champs sont obligatoires.";
     } else {

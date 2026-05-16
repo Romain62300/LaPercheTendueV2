@@ -123,8 +123,9 @@ $articles = $pdo->query("SELECT a.*, u.nom as auteur_nom FROM articles a LEFT JO
                                         <?php require_once '../includes/csrf.php'; echo csrf_token_field(); ?>
                                         <input type="hidden" name="supprimer_id" value="<?= $article['id'] ?>">
                                         <button type="submit" class="btn-delete">
-                                        <i class="fa fa-trash"></i> Supprimer
-                                    </button>
+                                            <i class="fa fa-trash"></i> Supprimer
+                                        </button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>

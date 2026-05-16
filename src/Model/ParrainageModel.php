@@ -19,9 +19,9 @@ class ParrainageModel {
             $sql = "INSERT INTO parrainages (nom, email, message, date_inscription) VALUES (:nom, :email, :message, NOW())";
             $stmt = $this->pdo->prepare($sql);
             return $stmt->execute([
-                ':nom' => htmlspecialchars(strip_tags($nom)), 
+                ':nom' => strip_tags($nom),
                 ':email' => filter_var($email, FILTER_SANITIZE_EMAIL),
-                ':message' => htmlspecialchars(strip_tags($message)) 
+                ':message' => strip_tags($message)
             ]);
         } catch (PDOException $e) {
             file_put_contents(__DIR__ . "/../../logs/errors.log", 

@@ -1,9 +1,7 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
-}
+require_once '../includes/auth.php';
+require_admin();
 require_once '../database/database.php';
 require_once '../includes/csrf.php';
 

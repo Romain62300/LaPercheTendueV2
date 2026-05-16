@@ -20,8 +20,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($_FILES['image']['name'])) {
             $ext      = strtolower(pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION));
             $exts_ok  = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
-            if (!in_array($ext, $exts_ok)) {
+            $mimes_ok = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+            $finfo    = finfo_open(FILEINFO_MIME_TYPE);
+            $mime     = finfo_file($finfo, $_FILES['image']['tmp_name']);
+            finfo_close($finfo);
+            if (!in_array($ext, $exts_ok) || !in_array($mime, $mimes_ok)) {
                 $erreur = "Format d'image non autorisé (jpg, png, gif, webp uniquement).";
+            } elseif (!getimagesize($_FILES['image']['tmp_name'])) {
+                $erreur = "Le fichier uploadé n'est pas une image valide.";
             } else {
                 $nom_fichier = uniqid('article_') . '.' . $ext;
                 $destination = '../public/assets/images/' . $nom_fichier;
@@ -117,11 +123,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?= csrf_token_field() ?>
             <div class="mb-4">
                 <label class="form-label"><i class="fa fa-heading"></i> Titre de l'article *</label>
-                <input type="text" name="titre" class="form-control" placeholder="Ex: Journée solidaire du 15 avril" required value="<?= $_POST['titre'] ?? '' ?>">
+                <input type="text" name="titre" class="form-control" placeholder="Ex: Journée solidaire du 15 avril" required value="<?= htmlspecialchars($_POST['titre'] ?? '') ?>">
             </div>
             <div class="mb-4">
                 <label class="form-label"><i class="fa fa-align-left"></i> Contenu de l'article *</label>
-                <textarea name="contenu" class="form-control" rows="10" placeholder="Rédigez votre article ici..." required><?= $_POST['contenu'] ?? '' ?></textarea>
+                <textarea name="contenu" class="form-control" rows="10" placeholder="Rédigez votre article ici..." required><?= htmlspecialchars($_POST['contenu'] ?? '') ?></textarea>
             </div>
             <div class="mb-4">
                 <label class="form-label"><i class="fa fa-image"></i> Image (optionnelle)</label>
