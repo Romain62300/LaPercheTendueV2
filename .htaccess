@@ -1,7 +1,64 @@
+# ============================
+# SÉCURITÉ GÉNÉRALE
+# ============================
+
+# Désactiver la liste des fichiers dans les dossiers
+Options -Indexes
+
+# Masquer la signature du serveur
+ServerSignature Off
+
+# ============================
+# PROTECTION DES DOSSIERS SENSIBLES
+# ============================
+
+# Bloquer l'accès direct au dossier database/
 <IfModule mod_rewrite.c>
-    Options -Indexes
     RewriteEngine On
+
+    # Bloquer database/
+    RewriteRule ^database/ - [F,L]
+
+    # Bloquer includes/
+    RewriteRule ^includes/ - [F,L]
+
+    # Bloquer src/
+    RewriteRule ^src/ - [F,L]
+
+    # Bloquer les fichiers SQL
+    RewriteRule \.sql$ - [F,L]
+
+    # Bloquer les fichiers de config
+    RewriteRule config\.php$ - [F,L]
+    RewriteRule config\.example\.php$ - [F,L]
+    RewriteRule \.env$ - [F,L]
+
+    # Redirection vers public/
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ index.php?$1 [QSA,L]
+    RewriteRule ^(.*)$ public/$1 [QSA,L]
+</IfModule>
+
+# ============================
+# PROTECTION DES FICHIERS SENSIBLES
+# ============================
+
+<FilesMatch "\.(sql|env|log|json|lock|md|gitignore)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# ============================
+# HEADERS DE SÉCURITÉ
+# ============================
+
+<IfModule mod_headers.c>
+    # Protection XSS
+    Header set X-XSS-Protection "1; mode=block"
+    # Empêcher le clickjacking
+    Header set X-Frame-Options "SAMEORIGIN"
+    # Empêcher le sniffing de type MIME
+    Header set X-Content-Type-Options "nosniff"
+    # Référer policy
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
