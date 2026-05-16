@@ -2,6 +2,8 @@
 $page_title = "Contact - La Perche Tendue";
 $page_description = "Contactez l'association La Perche Tendue via notre formulaire sécurisé.";
 require_once '../database/database.php';
+require_once '../includes/csrf.php';
+ 
 function getC($pdo, $slug) {
     $stmt = $pdo->prepare("SELECT contenu FROM pages_contenu WHERE page_slug = ?");
     $stmt->execute([$slug]);
@@ -10,22 +12,31 @@ function getC($pdo, $slug) {
 }
 ?>
 <?php include_once '../includes/header.php'; ?>
-
+ 
 <?php if (isset($_GET['succes'])): ?>
   <div style="max-width:800px;margin:20px auto;padding:15px;background:#d4edda;border:1px solid #28a745;border-radius:8px;color:#155724;text-align:center;">
     ✅ Votre message a bien été envoyé ! Nous vous répondrons dans les plus brefs délais.
   </div>
 <?php endif; ?>
+ 
 <?php if (isset($_GET['erreur'])): ?>
   <div style="max-width:800px;margin:20px auto;padding:15px;background:#f8d7da;border:1px solid #dc3545;border-radius:8px;color:#721c24;text-align:center;">
-    <?php switch($_GET['erreur']){case 'champs_manquants':echo '⚠️ Veuillez remplir tous les champs obligatoires.';break;case 'email_invalide':echo '⚠️ L\'adresse email saisie n\'est pas valide.';break;case 'rgpd':echo '⚠️ Vous devez accepter la politique de confidentialité.';break;case 'envoi_impossible':echo '❌ Une erreur est survenue. Veuillez réessayer.';break;} ?>
+    <?php
+    switch($_GET['erreur']) {
+        case 'champs_manquants': echo '⚠️ Veuillez remplir tous les champs obligatoires.'; break;
+        case 'email_invalide': echo '⚠️ L\'adresse email saisie n\'est pas valide.'; break;
+        case 'rgpd': echo '⚠️ Vous devez accepter la politique de confidentialité.'; break;
+        case 'trop_de_messages': echo '⚠️ Trop de messages envoyés. Réessayez dans une heure.'; break;
+        case 'envoi_impossible': echo '❌ Une erreur est survenue. Veuillez réessayer.'; break;
+    }
+    ?>
   </div>
 <?php endif; ?>
-
+ 
 <section class="form-image-top">
   <img src="assets/images/contact-epicerie.jpg" alt="Photo de l'équipe à l'épicerie" class="image-contact">
 </section>
-
+ 
 <section class="page-section container">
   <h2 class="text-center" style="margin-bottom:30px;">NOS ÉPICERIES</h2>
   <div class="row g-4 justify-content-center">
@@ -47,10 +58,14 @@ function getC($pdo, $slug) {
     </div>
   </div>
 </section>
-
+ 
 <section class="form-style-boite">
   <h2 class="form-title">Nous Contacter :</h2>
   <form action="traitement_contact.php" method="POST" class="form-boite">
+    <?= csrf_token_field() ?>
+    <!-- Honeypot anti-spam invisible -->
+    <input type="text" name="honeypot" style="display:none;" aria-hidden="true" tabindex="-1">
+ 
     <div class="form-ligne">
       <div class="form-colonne">
         <label for="nom">Entrez votre nom :</label>
@@ -80,5 +95,5 @@ function getC($pdo, $slug) {
     <button type="submit" class="btn-form-grey">Envoyer</button>
   </form>
 </section>
-
+ 
 <?php include_once '../includes/footer.php'; ?>
