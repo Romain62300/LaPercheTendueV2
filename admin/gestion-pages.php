@@ -150,7 +150,7 @@ $page_active = $_GET['page'] ?? array_key_first($pages);
         <a href="gestion-messages.php"><i class="fa fa-envelope"></i> Messages</a>
         <a href="gestion-dons.php"><i class="fa fa-hand-holding-heart"></i> Dons</a>
         <a href="gestion-pages.php" class="active"><i class="fa fa-file-alt"></i> Pages du site</a>
-        <a href="gestion-photos.php"><i class="fa fa-images"></i> Photos</a>
+        <a href="gestion-medias.php"><i class="fa fa-images"></i> Photos</a>
         <a href="/LaPercheTendueV2/public/index.php" target="_blank"><i class="fa fa-globe"></i> Voir le site</a>
         <a href="logout.php" style="margin-top: 20px; color: #ff6b6b;"><i class="fa fa-sign-out-alt"></i> Se déconnecter</a>
     </div>

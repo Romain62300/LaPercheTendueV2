@@ -1,4 +1,10 @@
 <?php
+session_start();
+$page_title = "Inscription au parrainage - La Perche Tendue";
+$page_description = "Inscrivez-vous pour devenir parrain ou bénéficiaire de notre programme de parrainage.";
+?>
+
+<?php
 $page_title = "Inscription au parrainage - La Perche Tendue";
 $page_description = "Inscrivez-vous pour devenir parrain ou bénéficiaire de notre programme de parrainage.";
 ?>

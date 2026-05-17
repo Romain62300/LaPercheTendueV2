@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem -Path \"C:\\\\wamp64\\\\www\\\\LaPercheTendueV2\" -Force -Recurse | Select-Object -Property FullName, @{Name=\"Type\";Expression={if\\($_.PSIsContainer\\){\"DIR\"}else{\"FILE\"}}}, @{Name=\"Size\";Expression={if\\($_.PSIsContainer\\){\"-\"}else{$_.Length}}} | ConvertTo-Json -Depth 100)",
+      "Bash(grep -E \"\\\\.sql$|\\\\.php$\")",
+      "Bash(xargs wc -l)"
+    ]
+  }
+}
