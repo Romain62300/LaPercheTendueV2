@@ -10,8 +10,8 @@ $erreur = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_verify();
-    $titre   = htmlspecialchars(trim($_POST['titre'] ?? ''));
-    $contenu = htmlspecialchars(trim($_POST['contenu'] ?? ''));
+    $titre   = trim($_POST['titre'] ?? '');
+    $contenu = trim($_POST['contenu'] ?? '');
     $image   = '';
 
     if (empty($titre) || empty($contenu)) {
@@ -28,6 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $erreur = "Format d'image non autorisé (jpg, png, gif, webp uniquement).";
             } elseif (!getimagesize($_FILES['image']['tmp_name'])) {
                 $erreur = "Le fichier uploadé n'est pas une image valide.";
+            } elseif ($_FILES['image']['size'] > 5 * 1024 * 1024) {
+                $erreur = "Image trop lourde (max 5 Mo).";
             } else {
                 $nom_fichier = uniqid('article_') . '.' . $ext;
                 $destination = '../public/assets/images/' . $nom_fichier;
@@ -96,7 +98,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="logout.php" style="margin-top:20px;color:#ff6b6b;"><i class="fa fa-sign-out-alt"></i> Se déconnecter</a>
     </div>
 </div>
-
 <div class="main-content">
     <div class="topbar">
         <h1><i class="fa fa-plus"></i> Ajouter un article</h1>
@@ -104,20 +105,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <i class="fa fa-list"></i> Voir les articles
         </a>
     </div>
-
     <?php if ($succes): ?>
         <div class="alert" style="background:#d4edda;border:1px solid #28a745;color:#155724;border-radius:8px;padding:15px;margin-bottom:20px;">
-            ✅ <?= $succes ?>
+            ✅ <?= htmlspecialchars($succes) ?>
             <a href="liste-articles.php" style="margin-left:10px;color:#155724;font-weight:bold;">Voir les articles →</a>
         </div>
     <?php endif; ?>
-
     <?php if ($erreur): ?>
         <div class="alert" style="background:#fdecea;border:1px solid #C62828;color:#C62828;border-radius:8px;padding:15px;margin-bottom:20px;">
-            ⚠️ <?= $erreur ?>
+            ⚠️ <?= htmlspecialchars($erreur) ?>
         </div>
     <?php endif; ?>
-
     <div class="card-form">
         <form action="" method="POST" enctype="multipart/form-data">
             <?= csrf_token_field() ?>
@@ -133,7 +131,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label class="form-label"><i class="fa fa-image"></i> Image (optionnelle)</label>
                 <input type="file" name="image" class="form-control" accept="image/*" onchange="previewImage(this)">
                 <img id="preview" class="preview-img" src="" alt="Aperçu">
-                <small style="color:#888;">Formats acceptés : jpg, png, gif, webp</small>
+                <small style="color:#888;">Formats acceptés : jpg, png, gif, webp — max 5 Mo</small>
             </div>
             <div style="display:flex;gap:12px;">
                 <button type="submit" class="btn-publier"><i class="fa fa-paper-plane"></i> Publier l'article</button>

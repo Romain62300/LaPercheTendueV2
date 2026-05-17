@@ -1,7 +1,16 @@
-<IfModule mod_rewrite.c>
-    Options -Indexes
-    RewriteEngine On
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ index.php?$1 [QSA,L]
+# Désactiver la liste des fichiers
+Options -Indexes
+
+# Headers de sécurité HTTP
+<IfModule mod_headers.c>
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-Content-Type-Options "nosniff"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
+
+# Bloquer les fichiers sensibles
+<FilesMatch "\.(sql|env|log)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>

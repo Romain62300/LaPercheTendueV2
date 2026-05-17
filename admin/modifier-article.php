@@ -18,8 +18,8 @@ $erreur = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_verify();
-    $titre   = htmlspecialchars(trim($_POST['titre'] ?? ''));
-    $contenu = htmlspecialchars(trim($_POST['contenu'] ?? ''));
+    $titre   = trim($_POST['titre'] ?? '');
+    $contenu = trim($_POST['contenu'] ?? '');
     $image   = $article['image'];
 
     if (empty($titre) || empty($contenu)) {
@@ -36,11 +36,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $erreur = "Format d'image non autorisé.";
             } elseif (!getimagesize($_FILES['image']['tmp_name'])) {
                 $erreur = "Le fichier uploadé n'est pas une image valide.";
+            } elseif ($_FILES['image']['size'] > 5 * 1024 * 1024) {
+                $erreur = "Image trop lourde (max 5 Mo).";
             } else {
+                $ancien = $article['image'];
                 $nom_fichier = uniqid('article_') . '.' . $ext;
                 $destination = '../public/assets/images/' . $nom_fichier;
                 if (move_uploaded_file($_FILES['image']['tmp_name'], $destination)) {
                     $image = $nom_fichier;
+                    // Supprimer l'ancienne image
+                    if ($ancien && file_exists('../public/assets/images/' . $ancien)) {
+                        unlink('../public/assets/images/' . $ancien);
+                    }
                 }
             }
         }
@@ -99,7 +106,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="logout.php" style="margin-top:20px;color:#ff6b6b;"><i class="fa fa-sign-out-alt"></i> Se déconnecter</a>
     </div>
 </div>
-
 <div class="main-content">
     <div class="topbar">
         <h1><i class="fa fa-edit"></i> Modifier l'article</h1>
@@ -107,14 +113,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <i class="fa fa-arrow-left"></i> Retour aux articles
         </a>
     </div>
-
     <?php if ($succes): ?>
-        <div style="background:#d4edda;border:1px solid #28a745;color:#155724;border-radius:8px;padding:15px;margin-bottom:20px;">✅ <?= $succes ?></div>
+        <div style="background:#d4edda;border:1px solid #28a745;color:#155724;border-radius:8px;padding:15px;margin-bottom:20px;">✅ <?= htmlspecialchars($succes) ?></div>
     <?php endif; ?>
     <?php if ($erreur): ?>
-        <div style="background:#fdecea;border:1px solid #C62828;color:#C62828;border-radius:8px;padding:15px;margin-bottom:20px;">⚠️ <?= $erreur ?></div>
+        <div style="background:#fdecea;border:1px solid #C62828;color:#C62828;border-radius:8px;padding:15px;margin-bottom:20px;">⚠️ <?= htmlspecialchars($erreur) ?></div>
     <?php endif; ?>
-
     <div class="card-form">
         <form action="" method="POST" enctype="multipart/form-data">
             <?= csrf_token_field() ?>
@@ -135,7 +139,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                 <?php endif; ?>
                 <input type="file" name="image" class="form-control" accept="image/*">
-                <small style="color:#888;">Laissez vide pour conserver l'image actuelle</small>
+                <small style="color:#888;">Laissez vide pour conserver l'image actuelle — max 5 Mo</small>
             </div>
             <div style="display:flex;gap:12px;">
                 <button type="submit" class="btn-sauvegarder"><i class="fa fa-save"></i> Sauvegarder</button>
