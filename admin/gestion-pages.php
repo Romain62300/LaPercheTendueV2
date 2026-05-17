@@ -11,7 +11,9 @@ $erreur = '';
 // Sauvegarde du contenu
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['sauvegarder'])) {
     csrf_verify();
+    $slugs_valides = $pdo->query("SELECT page_slug FROM pages_contenu")->fetchAll(PDO::FETCH_COLUMN);
     foreach ($_POST['contenu'] as $slug => $texte) {
+        if (!in_array($slug, $slugs_valides, true)) continue;
         $stmt = $pdo->prepare("UPDATE pages_contenu SET contenu = ? WHERE page_slug = ?");
         $stmt->execute([trim($texte), $slug]);
     }

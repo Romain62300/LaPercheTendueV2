@@ -27,6 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $role     = in_array($_POST['role'] ?? '', ['user', 'admin']) ? $_POST['role'] : 'user';
     if (empty($nom) || empty($email) || empty($mdp)) {
         $erreur_ajout = "Tous les champs sont obligatoires.";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $erreur_ajout = "L'adresse email n'est pas valide.";
     } else {
         $existe = $pdo->prepare("SELECT id FROM utilisateurs WHERE email = ?");
         $existe->execute([$email]);

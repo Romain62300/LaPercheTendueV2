@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+if (isset($_SESSION['user_id']) && isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin') {
+    header("Location: dashboard.php");
+    exit();
+}
+
 require_once '../includes/csrf.php';
 require_once '../database/database.php';
 require_once '../src/Controller/AdminController.php';
