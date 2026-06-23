@@ -147,31 +147,50 @@ $derniers_contacts = $pdo->query("SELECT * FROM contacts ORDER BY date_envoi DES
         <h2>Administration</h2>
     </div>
     <div class="sidebar-menu">
-        <a href="dashboard.php" class="active">
-            <i class="fa fa-home"></i> Tableau de bord
-        </a>
-        <a href="liste-articles.php">
-            <i class="fa fa-newspaper"></i> Articles
-        </a>
-        <a href="ajout-article.php">
-            <i class="fa fa-plus"></i> Ajouter un article
-        </a>
-        <a href="gestion-membres.php">
-            <i class="fa fa-users"></i> Membres
-        </a>
-        <a href="gestion-messages.php"><i class="fa fa-envelope"></i> Messages</a>
-        <a href="gestion-pages.php"><i class="fa fa-file-alt"></i> Pages du site</a>
-        <a href="gestion-medias.php"><i class="fa fa-images"></i> Médias & Photos</a>
-        <a href="gestion-dons.php">
-            <i class="fa fa-hand-holding-heart"></i> Dons
-        </a>
-        <a href="/LaPercheTendueV2/public/index.php" target="_blank">
-            <i class="fa fa-globe"></i> Voir le site
-        </a>
-        <a href="logout.php" style="margin-top: 20px; color: #ff6b6b;">
-            <i class="fa fa-sign-out-alt"></i> Se déconnecter
-        </a>
-    </div>
+    <a href="dashboard.php" class="active">
+        <i class="fa fa-home"></i> Tableau de bord
+    </a>
+
+    <a href="liste-articles.php">
+        <i class="fa fa-newspaper"></i> Articles
+    </a>
+
+    <a href="ajout-article.php">
+        <i class="fa fa-plus"></i> Ajouter un article
+    </a>
+
+    <a href="gestion-membres.php">
+        <i class="fa fa-users"></i> Membres
+    </a>
+
+    <a href="gestion-messages.php">
+        <i class="fa fa-envelope"></i> Messages
+    </a>
+
+    <a href="gestion-pages.php">
+        <i class="fa fa-file-alt"></i> Pages du site
+    </a>
+
+    <a href="gestion-medias.php">
+        <i class="fa fa-images"></i> Médias & Photos
+    </a>
+
+    <a href="gestion-dons.php">
+        <i class="fa fa-hand-holding-heart"></i> Dons
+    </a>
+
+    <a href="/LaPercheTendueV2/public/index.php" target="_blank">
+        <i class="fa fa-globe"></i> Voir le site
+    </a>
+
+    <a href="changer-mot-de-passe.php">
+        <i class="fa fa-key"></i> Changer le mot de passe
+    </a>
+
+    <a href="logout.php" style="margin-top: 20px; color: #ff6b6b;">
+        <i class="fa fa-sign-out-alt"></i> Se déconnecter
+    </a>
+</div>
 </div>
  
 <!-- Contenu principal -->
