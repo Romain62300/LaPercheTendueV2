@@ -5,10 +5,10 @@ $user = 'root'; // Nom d'utilisateur (par défaut sous WAMP/XAMPP)
 $password = ''; // Mot de passe (souvent vide en local)
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $password);
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $user, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->exec("SET NAMES utf8mb4");
 } catch (PDOException $e) {
     error_log("Erreur de connexion à la base de données : " . $e->getMessage());
     die("Une erreur technique est survenue. Veuillez réessayer plus tard.");
 }
-?>
